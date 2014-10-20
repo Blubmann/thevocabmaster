@@ -11,7 +11,7 @@
         android:label="@string/app_name" >
         <activity
             android:label="@string/app_name"
-            android:name=".DashboardActivity" >
+            android:name="com.example.fabianfleischer.thevocabmaster.DashboardActivity" >
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,12 +22,12 @@
         <!--  Login Activity -->
         <activity
             android:label="Login Account"
-            android:name=".LoginActivity"></activity>
+            android:name="com.example.fabianfleischer.thevocabmaster.LoginActivity"></activity>
 
         <!--  Register Activity -->
         <activity
             android:label="Register New Account"
-            android:name=".RegisterActivity"></activity>
+            android:name="com.example.fabianfleischer.thevocabmaster.RegisterActivity"></activity>
     </application>
 
     <!-- Allow to connect with internet -->
