@@ -5,7 +5,7 @@ package com.example.fabianfleischer.thevocabmaster;
  */
 
 
-//Testt
+//Test
 import org.json.JSONException;
 import org.json.JSONObject;
 
