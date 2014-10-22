@@ -20,20 +20,29 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.os.AsyncTask;
 import android.util.Log;
 
-public class JSONParser {
+public class JSONParser extends AsyncTask<String,Void,JSONObject> {
 
     static InputStream is = null;
     static JSONObject jObj = null;
     static String json = "";
 
+    String url;
+    List<NameValuePair> params;
+
     // constructor
     public JSONParser() {
 
     }
+    public JSONParser(String url, List<NameValuePair> params) {
+        this.url=url;
+        this.params=params;
+    }
 
-    public JSONObject getJSONFromUrl(String url, List<NameValuePair> params) {
+    @Override
+    protected JSONObject doInBackground(String... args) {
 
         // Making HTTP request
         try {
@@ -79,5 +88,10 @@ public class JSONParser {
         // return JSON String
         return jObj;
 
+    }
+
+    @Override
+    protected void onPostExecute(JSONObject obj) {
+        // Now we have your JSONObject, play around with it.
     }
 }
