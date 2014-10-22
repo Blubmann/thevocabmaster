@@ -12,6 +12,63 @@
         android:gravity="center"
         android:layout_marginTop="20dip"/>
 
+    <TextView
+        android:layout_width="408dp"
+        android:layout_height="wrap_content"
+        android:text="Bitte geben Sie das gesuchte Wort ein:"
+        android:id="@+id/textView"
+        android:textSize="20sp"
+        android:textIsSelectable="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Wort"
+        android:id="@+id/gesucht"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/eingabeKasten"
+        android:text="Hier Eingeben" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Statistik"
+        android:id="@+id/buttonStatistik"
+        android:layout_gravity="right" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Überprüfen"
+        android:id="@+id/buttonPrüfen" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weiter"
+        android:id="@+id/buttonWeiter" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ausgabe"
+        android:layout_marginLeft="10dp"
+        android:textColor="#ffff0000"
+        android:textAlignment="center"
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/ausgabeStatistik" />
+
     <Button android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Logout Me"
@@ -21,5 +78,13 @@
         android:id="@+id/btnLogout"
         android:layout_marginTop="80dip"
         android:background="@null"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change Language"
+        android:id="@+id/buttonSprachWechsel"
+        android:layout_gravity="center_horizontal"
+        android:singleLine="false" />
 
 </LinearLayout>

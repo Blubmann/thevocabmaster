@@ -52,6 +52,14 @@ public class LoginActivity extends Activity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
+
+                Intent j = new Intent(getApplicationContext(),
+                        DashboardActivity.class);
+                j.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(j);
+                finish();
+
+                /*                                                                                  //Auskommentiert Login Überspringen
                 String email = inputEmail.getText().toString();
                 String password = inputPassword.getText().toString();
                 UserFunctions userFunction = new UserFunctions();
@@ -63,7 +71,7 @@ public class LoginActivity extends Activity {
                     if (json.getString(KEY_SUCCESS) != null) {
                         loginErrorMsg.setText("");
                         String res = json.getString(KEY_SUCCESS);
-                        if(Integer.parseInt(res) == 1){
+                        if (Integer.parseInt(res) == 1) {
                             // user successfully logged in
                             // Store user details in SQLite Database
                             DatabaseHandler db = new DatabaseHandler(getApplicationContext());
@@ -82,15 +90,16 @@ public class LoginActivity extends Activity {
 
                             // Close Login Screen
                             finish();
-                        }else{
+                        } else {
                             // Error in login
                             loginErrorMsg.setText("Incorrect username/password");
                         }
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
-                }
+                }*/
             }
+
         });
 
         // Link to Register Screen

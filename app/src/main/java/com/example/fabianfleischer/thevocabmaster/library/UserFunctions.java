@@ -2,7 +2,7 @@ package com.example.fabianfleischer.thevocabmaster.library;
 
 /**
  * Created by fabian.fleischer on 20.10.2014.
- */
+*/
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,17 +32,19 @@ public class UserFunctions {
      * @param email
      * @param password
      * */
+
     public JSONObject loginUser(String email, String password){
         // Building Parameters
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("tag", login_tag));
         params.add(new BasicNameValuePair("email", email));
         params.add(new BasicNameValuePair("password", password));
-        JSONObject json = jsonParser.getJSONFromUrl(loginURL, params);
+      JSONObject json = jsonParser.getJSONFromUrl(loginURL, params);
         // return json
         // Log.e("JSON", json.toString());
-        return json;
+      return json;
     }
+
 
     /**
      * function make Login Request
@@ -61,7 +63,8 @@ public class UserFunctions {
         // getting JSON Object
         JSONObject json = jsonParser.getJSONFromUrl(registerURL, params);
         // return json
-        return json;
+       return json;
+
     }
 
     /**
