@@ -18,7 +18,7 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
     UserFunctions userFunctions;
     Button btnLogout;
 
-    //Schnittstellenbezogene Variablen
+    //Schnittstellenbezogene Variablen.
     public Button buttonWeiter;
     public Button buttonStatistik;
     public Button buttonPrüfen;
