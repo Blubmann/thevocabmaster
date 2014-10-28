@@ -35,7 +35,6 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
 
     public int vocnum;                  // Nummer der momentan gewählte Variable
     public int anzahlVoc = 10;          // Anzahl der Vocabeln
-
     public String[][] vocabs = new String[2][anzahlVoc];   // Alle Vocabeln
     public String[] ausgewVoc = new String[2];      // Die momentan Gewählte Variable
 
@@ -55,7 +54,6 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
         checkLoginStatus();
         initiate();
     }
-
     public void checkLoginStatus(){
         /**
          * Dashboard Screen for the application Automatisches vom Fleischer
@@ -153,7 +151,6 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
         ausgabeStatistik.setVisibility(View.INVISIBLE);
     }      // Ausblenden der Elemente
     public void reset(){
-
         waehleNeueVariable();
         elementeAusblenden();
         buttonPrüfen.setVisibility(View.VISIBLE);
@@ -188,6 +185,7 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
         check = checkVocab();
         aktualisiereStatistik(check);
         ueberpruefungBeendet(check);
+        entferneRichtigeVariablen(check);          // Inteligente Wahl der Variablen.
 
     }         // Unterscheidung welcher Zustand (Überprüfen/Weiter)
     public void buttonStatistikclicked() {
@@ -216,13 +214,13 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
         reset();
     }
 
+
     //Alles was mit Variablen zu tun hat
     public void waehleNeueVariable() {
-        vocnum = (int) (Math.random() * 10);
+        vocnum = randomfunktion();
         ausgewVoc[0] = vocabs[0][vocnum];
         ausgewVoc[1] = vocabs[1][vocnum];
         gesucht.setText(vocabs[0][vocnum]);
-
     }         // Neue zufällige Variable wird in die aktuelle Eingespeichert
     public boolean checkVocab() {
         String eingegeben = (String) eingabe.getText().toString();
@@ -233,22 +231,6 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
             return false;
         }
     }              // Überprüfung der Richtigkeit der Eingabe
-    public void ueberpruefungBeendet(boolean check){
-        ausgabeErgebnis(check);
-        buttonPrüfen.setVisibility(View.INVISIBLE);
-        buttonWeiter.setVisibility(View.VISIBLE);
-        buttonStatistik.setVisibility(View.VISIBLE);
-    }       // Was wird nach der Beantwortung gemacht (WeiterButton/Statistic)
-    public void aktualisiereStatistik(boolean check){
-        anzahlüberprüft[vocnum]++;
-        if (check == false)
-        {
-            anzahlFalsch[vocnum]++;
-        }
-        else{
-            anzahlRichtig[vocnum]++;
-        }
-    }       // Auktualisiert die Statistic mit dem Eingegebenen Wert
     public void vertauscheVariablen(){
         String hilfsvar= "";
         for(int i=0; i<anzahlVoc;i++) {
@@ -257,6 +239,29 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
             vocabs[1][i] = hilfsvar;
         }
     }
+    public void entferneRichtigeVariablen(boolean check){
+        if (check== false){
+            return;
+        }
+        else {
+            if(anzahlVoc >1) {
+                if (anzahlVoc - 1 == vocnum) {
+                    anzahlVoc--;
+                }
+                else{
+                    vocabs[1][vocnum] = vocabs[1][(anzahlVoc-1)];
+                    vocabs[0][vocnum] = vocabs[0][(anzahlVoc-1)];
+                    anzahlVoc--;
+                }
+            }
+            else{
+                ausgabe.setText("Das war die letzte Variable die noch nicht richtig beantwortet wurde !");
+            }
+
+        }
+
+    }
+    //Alles was mit Statistik zu tun hat
     public void switchStatistik(){
         int hilfsvar= 0;
         for(int i =0; i < anzahlVoc; i++) {
@@ -273,6 +278,18 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
             anzahlFalsch[i] = hilfsvar;
         }
     }
+    public void aktualisiereStatistik(boolean check){
+        anzahlüberprüft[vocnum]++;
+        if (check == false)
+        {
+            anzahlFalsch[vocnum]++;
+        }
+        else{
+            anzahlRichtig[vocnum]++;
+        }
+    }       // Auktualisiert die Statistic mit dem Eingegebenen Wert
+
+
     //Alle Ausgaben
     public void ausgabeErgebnis(boolean check){
         if (check == false) {
@@ -290,6 +307,19 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
                 "\n Anzahl richtiger Antworten: " + anzahlRichtig[vocnum] +
                 "\n Anzahl falscher Antworten: " + anzahlFalsch[vocnum]);
     }              // Anzeigen von Statistic
+
+    //Andere Funktionen
+    public int randomfunktion(){
+        int zufallszahl;
+        zufallszahl = (int) (Math.random() * anzahlVoc);
+        return zufallszahl;
+    }
+    public void ueberpruefungBeendet(boolean check){
+        ausgabeErgebnis(check);
+        buttonPrüfen.setVisibility(View.INVISIBLE);
+        buttonWeiter.setVisibility(View.VISIBLE);
+        buttonStatistik.setVisibility(View.VISIBLE);
+    }       // Was wird nach der Beantwortung gemacht (WeiterButton/Statistic)
 
 
 }
