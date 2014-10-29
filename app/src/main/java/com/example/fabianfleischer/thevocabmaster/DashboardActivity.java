@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.R;
 import com.example.fabianfleischer.thevocabmaster.library.UserFunctions;
 
 public class DashboardActivity extends Activity implements View.OnClickListener {
@@ -60,31 +61,31 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
          * */
         // Check login status in database
         userFunctions = new UserFunctions();
-        //if(userFunctions.isUserLoggedIn(getApplicationContext())){                                //Auskommentiert Login Überspringen
-        setContentView(R.layout.dashboard);
-        btnLogout = (Button) findViewById(R.id.btnLogout);
+        if(userFunctions.isUserLoggedIn(getApplicationContext())) {                                //Auskommentiert Login Überspringen
+            setContentView(R.layout.dashboard);
+            btnLogout = (Button) findViewById(R.id.btnLogout);
 
-        btnLogout.setOnClickListener(new View.OnClickListener() {
+            btnLogout.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                userFunctions.logoutUser(getApplicationContext());
-                Intent login = new Intent(getApplicationContext(), LoginActivity.class);
-                login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(login);
-                // Closing dashboard screen
-                finish();
-            }
-        });
-
-        /*}else{                                                                                    //Auskommentiert Login Überspringen
+                public void onClick(View arg0) {
+                    // TODO Auto-generated method stub
+                    userFunctions.logoutUser(getApplicationContext());
+                    Intent login = new Intent(getApplicationContext(), LoginActivity.class);
+                    login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(login);
+                    // Closing dashboard screen
+                    finish();
+                }
+            });
+        }
+        else{                                                                                    //Auskommentiert Login Überspringen
             // user is not logged in show login screen
             Intent login = new Intent(getApplicationContext(), LoginActivity.class);
             login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(login);
             // Closing dashboard screen
             finish();
-        }*/
+        }
     }                                                             // Zeug fürs Login Funktioniert noch nicht deshalb viel auskommentiert
 
     //Alles was mit initialisierung zu tun hat

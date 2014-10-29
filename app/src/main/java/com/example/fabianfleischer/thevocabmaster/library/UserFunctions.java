@@ -1,57 +1,48 @@
 package com.example.fabianfleischer.thevocabmaster.library;
 
 /**
- * Created by fabian.fleischer on 20.10.2014.
-*/
-import java.util.ArrayList;
-import java.util.List;
+ * Created by fabian.fleischer on 22.10.2014.
+ */
+
+import android.content.Context;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 
-import android.content.Context;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserFunctions {
 
     private JSONParser jsonParser;
 
-    private static String loginURL = "http://10.0.2.2/ah_login_api/";
-    private static String registerURL = "http://10.0.2.2/ah_login_api/";
+    private static String loginURL = "http://193.196.7.23/android_login_api/";
+    private static String registerURL = "http://193.196.7.23/android_login_api/";
 
     private static String login_tag = "login";
     private static String register_tag = "register";
+    private static String question_tag = "question";
 
     // constructor
     public UserFunctions(){
         jsonParser = new JSONParser();
     }
 
-    /**
-     * function make Login Request
-     * @param email
-     * @param password
-     * */
-
+    //login with user provided email/pass
     public JSONObject loginUser(String email, String password){
         // Building Parameters
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("tag", login_tag));
         params.add(new BasicNameValuePair("email", email));
         params.add(new BasicNameValuePair("password", password));
-      JSONObject json = jsonParser.getJSONFromUrl(loginURL, params);
+        //Log.v("userfunctions", "loginuser");
+        JSONObject json = jsonParser.getJSONFromUrl(loginURL, params);
         // return json
-        // Log.e("JSON", json.toString());
-      return json;
+        return json;
     }
 
-
-    /**
-     * function make Login Request
-     * @param name
-     * @param email
-     * @param password
-     * */
+    //register a new user with name/email/pass
     public JSONObject registerUser(String name, String email, String password){
         // Building Parameters
         List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -60,16 +51,15 @@ public class UserFunctions {
         params.add(new BasicNameValuePair("email", email));
         params.add(new BasicNameValuePair("password", password));
 
+
+
         // getting JSON Object
         JSONObject json = jsonParser.getJSONFromUrl(registerURL, params);
         // return json
-       return json;
-
+        return json;
     }
 
-    /**
-     * Function get Login status
-     * */
+    //determine if the user is logged in
     public boolean isUserLoggedIn(Context context){
         DatabaseHandler db = new DatabaseHandler(context);
         int count = db.getRowCount();
@@ -80,14 +70,10 @@ public class UserFunctions {
         return false;
     }
 
-    /**
-     * Function to logout user
-     * Reset Database
-     * */
+    //logout the user
     public boolean logoutUser(Context context){
         DatabaseHandler db = new DatabaseHandler(context);
         db.resetTables();
         return true;
     }
-
 }

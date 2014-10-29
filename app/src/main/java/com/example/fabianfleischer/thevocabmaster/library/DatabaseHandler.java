@@ -1,15 +1,21 @@
 package com.example.fabianfleischer.thevocabmaster.library;
 
 /**
- * Created by fabian.fleischer on 20.10.2014.
+ * Created by fabian.fleischer on 22.10.2014.
  */
-import java.util.HashMap;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import org.apache.http.NameValuePair;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
@@ -18,7 +24,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     // Database Name
-    private static final String DATABASE_NAME = "android_api";
+    private static final String DATABASE_NAME = "android_api2";
 
     // Login table name
     private static final String TABLE_LOGIN = "login";
@@ -26,7 +32,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Login Table Columns names
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
-    private static final String KEY_EMAIL = "email";
+    public static final String KEY_EMAIL = "email";
     private static final String KEY_UID = "uid";
     private static final String KEY_CREATED_AT = "created_at";
 
@@ -38,11 +44,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_LOGIN_TABLE = "CREATE TABLE " + TABLE_LOGIN + "("
-                + KEY_ID + " INTEGER PRIMARY KEY,"
-                + KEY_NAME + " TEXT,"
-                + KEY_EMAIL + " TEXT UNIQUE,"
-                + KEY_UID + " TEXT,"
-                + KEY_CREATED_AT + " TEXT" + ")";
+                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
+                + KEY_EMAIL + " TEXT UNIQUE," + KEY_UID
+                + " TEXT," + KEY_CREATED_AT + " TEXT" + ")";
         db.execSQL(CREATE_LOGIN_TABLE);
     }
 
@@ -73,18 +77,35 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close(); // Closing database connection
     }
 
+    public void addUser(String email) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_EMAIL, email); // Email
+
+        // Inserting Row
+        db.insert(TABLE_LOGIN, null, values);
+        db.close(); // Closing database connection
+    }
+
+    public NameValuePair getUser() {
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        // params.add(new BasicNameValuePair("email"))
+        return null;
+    }
+
     /**
      * Getting user data from database
      * */
-    public HashMap<String, String> getUserDetails(){
-        HashMap<String,String> user = new HashMap<String,String>();
+    public HashMap<String, String> getUserDetails() {
+        HashMap<String, String> user = new HashMap<String, String>();
         String selectQuery = "SELECT  * FROM " + TABLE_LOGIN;
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         // Move to first row
         cursor.moveToFirst();
-        if(cursor.getCount() > 0){
+        if (cursor.getCount() > 0) {
             user.put("name", cursor.getString(1));
             user.put("email", cursor.getString(2));
             user.put("uid", cursor.getString(3));
@@ -97,8 +118,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     /**
-     * Getting user login status
-     * return true if rows are there in table
+     * Getting user login status return true if rows are there in table
      * */
     public int getRowCount() {
         String countQuery = "SELECT  * FROM " + TABLE_LOGIN;
@@ -112,11 +132,22 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return rowCount;
     }
 
+    public String returnRows() {
+        String response = "";
+        String countQuery = "SELECT * FROM " + TABLE_LOGIN;
+        SQLiteDatabase db = this.getReadableDatabase();
+        for (int j = 0; j < getRowCount(); j++) {
+            Cursor cursor = db.rawQuery(countQuery, null);
+            response += cursor.getColumnName(j);
+        }
+        Log.v("LT", response);
+        return response;
+    }
+
     /**
-     * Re crate database
-     * Delete all tables and create them again
+     * Re crate database Delete all tables and create them again
      * */
-    public void resetTables(){
+    public void resetTables() {
         SQLiteDatabase db = this.getWritableDatabase();
         // Delete All Rows
         db.delete(TABLE_LOGIN, null, null);
