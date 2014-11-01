@@ -5,14 +5,16 @@
     android:background="@drawable/background">
 
     <TextView
-        android:layout_width="364dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/Menü"
         android:id="@+id/textView"
         android:layout_gravity="center_horizontal"
         android:textAlignment="center"
         android:textSize="25dip"
-        android:padding="10dip"/>
+        android:padding="10dip"
+        android:singleLine="false"
+        android:gravity="center" />
 
     <Button
         android:layout_width="match_parent"
