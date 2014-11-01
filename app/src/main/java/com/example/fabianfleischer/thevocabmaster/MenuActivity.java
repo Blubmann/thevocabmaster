@@ -16,19 +16,19 @@ import com.example.fabianfleischer.thevocabmaster.library.UserFunctions;
 /**
  * Created by fabian.fleischer on 01.11.2014.
  */
-public class MenuActivity extends Activity{
+public class MenuActivity extends Activity implements View.OnClickListener {
 
     UserFunctions userFunctions;
     Button btnLogout;
     Button btnSettings;
     Button btnStatistik;
-    Button btnPrüfen;
+    Button btnÜben;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         checkLoginStatus();
-       // init();
+        init();
     }
 
 
@@ -39,13 +39,13 @@ public class MenuActivity extends Activity{
     public void einbindenOberfläche(){
         setContentView(R.layout.menu);
 
-        /*btnPrüfen=(Button) findViewById(R.id.btnPrüfen);
+        btnÜben=(Button) findViewById(R.id.btnÜben);
         btnStatistik=(Button) findViewById(R.id.btnStatistik);
         btnSettings=(Button) findViewById(R.id.btnSettings);
 
-        btnPrüfen.setOnClickListener(this);
+        btnÜben.setOnClickListener(this);
         btnStatistik.setOnClickListener(this);
-        btnSettings.setOnClickListener(this);*/
+        btnSettings.setOnClickListener(this);
     }
     public void checkLoginStatus(){
         /**
@@ -78,5 +78,10 @@ public class MenuActivity extends Activity{
             // Closing dashboard screen
             finish();
         }
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }

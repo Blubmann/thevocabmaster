@@ -17,21 +17,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/WörterÜben"
-        android:id="@+id/button"
+        android:id="@+id/btnÜben"
         android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/Statistik"
-        android:id="@+id/button2"
+        android:id="@+id/btnStatistik"
         android:layout_marginTop="25dp" />
 
     <Button
         android:layout_width="418dp"
         android:layout_height="wrap_content"
         android:text="@string/action_settings"
-        android:id="@+id/button3"
+        android:id="@+id/btnSettings"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="25dp"
         android:singleLine="false" />
