@@ -19,12 +19,15 @@
             android:textSize="25dip"
             android:padding="10dip"
             android:singleLine="false"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textColor="#333333"
+            android:background="@drawable/backgroundueberschrift"/>/>
         <!--  Name Label -->
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Benutzername" />
+            android:text="@string/Benutzername"
+            android:layout_marginTop="20dp" />
         <!--  Name TextField -->
         <EditText
             android:id="@+id/registerName"
