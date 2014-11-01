@@ -14,14 +14,14 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dip"
-            android:text="REGISTER"
+            android:text="@string/Registrieren"
             android:textSize="25dip"
             android:textStyle="bold" />
         <!--  Name Label -->
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Full Name" />
+            android:text="@string/Benutzername" />
         <!--  Name TextField -->
         <EditText
             android:id="@+id/registerName"
@@ -32,7 +32,7 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Email" />
+            android:text="@string/Email" />
         <!--  Email TextField -->
         <EditText
             android:id="@+id/registerEmail"
@@ -44,7 +44,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dip"
-            android:text="Password" />
+            android:text="@string/Passwort" />
         <!--  Password TextField -->
         <EditText
             android:id="@+id/registerPassword"
@@ -66,7 +66,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
-            android:text="Register" />
+            android:text="@string/Registrieren" />
 
         <!--  Link to Login Screen -->
         <Button
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dip"
             android:background="@null"
-            android:text="Already registred. Login Me!"
+            android:text="@string/Login1"
             android:textColor="#21dbd4"
             android:textStyle="bold" />
     </LinearLayout>
