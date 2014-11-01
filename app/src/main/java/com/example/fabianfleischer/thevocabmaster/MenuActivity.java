@@ -32,28 +32,29 @@ public class MenuActivity extends Activity implements View.OnClickListener {
     }
 
 
-    public void init(){
+    public void init() {
         einbindenOberfläche();
     }
 
-    public void einbindenOberfläche(){
-        setContentView(R.layout.menu);
+    public void einbindenOberfläche() {
 
-        btnÜben=(Button) findViewById(R.id.btnÜben);
-        btnStatistik=(Button) findViewById(R.id.btnStatistik);
-        btnSettings=(Button) findViewById(R.id.btnSettings);
+
+        btnÜben = (Button) findViewById(R.id.btnÜben);
+        btnStatistik = (Button) findViewById(R.id.btnStatistik);
+        btnSettings = (Button) findViewById(R.id.btnSettings);
 
         btnÜben.setOnClickListener(this);
         btnStatistik.setOnClickListener(this);
         btnSettings.setOnClickListener(this);
     }
-    public void checkLoginStatus(){
+
+    public void checkLoginStatus() {
         /**
          * Dashboard Screen for the application Automatisches vom Fleischer
          * */
         // Check login status in database
         userFunctions = new UserFunctions();
-        if(userFunctions.isUserLoggedIn(getApplicationContext())) {
+        if (userFunctions.isUserLoggedIn(getApplicationContext())) {
             setContentView(R.layout.menu);
             btnLogout = (Button) findViewById(R.id.btnLogout);
 
@@ -69,8 +70,7 @@ public class MenuActivity extends Activity implements View.OnClickListener {
                     finish();
                 }
             });
-        }
-        else{
+        } else {
             // user is not logged in show login screen
             Intent login = new Intent(getApplicationContext(), LoginActivity.class);
             login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -82,6 +82,29 @@ public class MenuActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        switch (view.getId()) {                                                 //Checkt welches Element geklickt wurde.
+            case R.id.btnSettings:
+                buttonSettingsclicked();
+                break;
+            case R.id.btnStatistik:
+                buttonStatistikMenüclicked();
+                break;
+            case R.id.btnÜben:
+                buttonÜbenclicked();
+                break;
+        }
 
+    }
+    public void buttonÜbenclicked(){
+        Intent i = new Intent(getApplicationContext(),
+                DashboardActivity.class);
+        startActivity(i);
+        finish();
+    }
+    public void buttonStatistikMenüclicked(){
+        //TODO
+    }
+    public void buttonSettingsclicked(){
+        //TODO
     }
 }
