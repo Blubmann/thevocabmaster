@@ -2,13 +2,47 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <Button android:layout_width="fill_parent"
+
+    <TextView
+        android:layout_width="364dp"
         android:layout_height="wrap_content"
-        android:text="Logout Me"
-        android:textSize="20dip"
+        android:text="@string/Menü"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:textSize="25dip"
+        android:padding="10dip"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/WörterÜben"
+        android:id="@+id/button"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Statistik"
+        android:id="@+id/button2"
+        android:layout_marginTop="25dp" />
+
+    <Button
+        android:layout_width="418dp"
+        android:layout_height="wrap_content"
+        android:text="@string/action_settings"
+        android:id="@+id/button3"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp"
+        android:singleLine="false" />
+
+    <Button
+        android:id="@id/btnLogout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@null"
+        android:text="@string/Logout"
         android:textColor="#21dbd4"
-        android:textStyle="bold"
-        android:id="@+id/btnLogout"
-        android:layout_marginTop="80dip"
-        android:background="@null"/>
+        android:textStyle="bold" />
 </LinearLayout>
