@@ -15,4 +15,9 @@
     <string name="Statistik">Statistik</string>
     <string name="Menü">Menü</string>
     <string name="Logout">Logout</string>
+    <string name="Weiter">Weiter</string>
+    <string name="SpracheÄndern">Sprache ändern</string>
+    <string name="Überprüfen">Überprüfen</string>
+    <string name="EingabeWort">Bitte gesuchtes Wort eingeben</string>
+
 </resources>
