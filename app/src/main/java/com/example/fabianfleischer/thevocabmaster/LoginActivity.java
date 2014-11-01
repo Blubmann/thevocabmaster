@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.R;
 
+
 public class LoginActivity extends Activity {
     Button btnLogin;
     Button btnLinkToRegister;

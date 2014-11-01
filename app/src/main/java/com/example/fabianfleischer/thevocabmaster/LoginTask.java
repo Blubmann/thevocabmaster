@@ -100,7 +100,7 @@ public class LoginTask extends AsyncTask<String, Void, Integer> {
         if (responseCode == 1) {
             progressDialog.dismiss();
             Intent i = new Intent();
-            i.setClass(activity.getApplicationContext(), DashboardActivity.class);
+            i.setClass(activity.getApplicationContext(), MenuActivity.class);
             activity.startActivity(i);
             //activity.loginReport(responseCode);
         }
