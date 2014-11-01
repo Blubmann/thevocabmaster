@@ -12,11 +12,7 @@
     <string name="Benutzername">Benutzername</string>
     <string name="Login1">Bereits registriert? Zum Login!</string>
     <string name="WörterÜben">Wörter üben</string>
-    <string name="EingabeGesuchtesWort">Bitte gesuchtes Wort eingeben:</string>
-    <string name="Weiter">Weiter</string>
-    <string name="Überprüfen">Überprüfen</string>
     <string name="Statistik">Statistik</string>
+    <string name="Menü">Menü</string>
     <string name="Logout">Logout</string>
-    <string name="SpracheÄndern">Sprache ändern</string>
-
 </resources>
