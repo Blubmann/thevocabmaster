@@ -15,10 +15,11 @@
     <TextView
         android:layout_width="408dp"
         android:layout_height="wrap_content"
-        android:text="@string/EingabeGesuchtesWort"
+        android:text="@string/EingabeWort"
         android:id="@+id/textView"
         android:textSize="20sp"
-        android:textIsSelectable="false" />
+        android:textIsSelectable="false"
+        android:singleLine="true" />
 
     <TextView
         android:layout_width="wrap_content"
