@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="8"
+        android:id="@+id/deutsch"
+        android:layout_alignParentLeft="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="8"
+        android:id="@+id/englisch"
+        android:layout_alignBottom="@+id/englisch"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <Button
+        android:id="@+id/addBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/deutsch"
+        android:onClick="add"
+        android:text="@string/AddWord"/>
+    <Button
+        android:id="@+id/delBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/englisch"
+        android:layout_alignParentRight="true"
+        android:onClick="del"
+        android:text="@string/DeleteWord"/>
+    <ListView
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/delBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@android:id/list"
+        android:dividerHeight="20.0sp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        tools:listitem="@android:layout/simple_list_item_2">
+        </ListView>
+
+</RelativeLayout>

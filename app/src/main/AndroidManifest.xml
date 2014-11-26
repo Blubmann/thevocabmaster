@@ -36,6 +36,10 @@
             android:name="com.example.fabianfleischer.thevocabmaster.MenuActivity"
             android:icon="@drawable/ic_launcher"
             android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.example.fabianfleischer.thevocabmaster.ListeActivity"
+            android:icon="@drawable/ic_launcher"
+            android:windowSoftInputMode="stateHidden" />
     </application>
 
 </manifest>

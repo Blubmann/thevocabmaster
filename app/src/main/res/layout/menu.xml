@@ -17,11 +17,19 @@
         android:gravity="center" />
 
     <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/WörterÜben"
+    android:id="@+id/btnÜben"
+    android:layout_gravity="center_horizontal" />
+
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/WörterÜben"
-        android:id="@+id/btnÜben"
-        android:layout_gravity="center_horizontal" />
+        android:text="@string/ListeErstellen"
+        android:id="@+id/btnListeErstellen"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp" />
 
     <Button
         android:layout_width="match_parent"

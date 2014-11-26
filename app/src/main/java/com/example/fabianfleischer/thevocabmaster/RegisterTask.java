@@ -23,6 +23,7 @@ public class RegisterTask extends AsyncTask<String, Void, Integer> {
     private RegisterActivity activity;
     private int id = -1;
     private JSONParser jsonParser;
+    private DatabaseHandler db;
     private static String loginURL = "http://193.196.7.23/android_login_api/";
     private static String registerURL = "http://193.196.7.23/android_login_api/";
     private static String KEY_SUCCESS = "success";
@@ -76,7 +77,7 @@ public class RegisterTask extends AsyncTask<String, Void, Integer> {
                 if(Integer.parseInt(res) == 1){
                     // user successfully registred
                     // Store user details in SQLite Database
-                    DatabaseHandler db = new DatabaseHandler(activity.getApplicationContext());
+                    db = new DatabaseHandler(activity.getApplicationContext());
                     JSONObject json_user = json.getJSONObject("user");
 
                     // Clear all previous data in database

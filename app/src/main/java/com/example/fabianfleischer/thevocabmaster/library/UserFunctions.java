@@ -22,6 +22,7 @@ public class UserFunctions {
 
     private static String login_tag = "login";
     private static String register_tag = "register";
+    private static String read_tag = "give";
     private static String question_tag = "question";
 
     // constructor
@@ -56,6 +57,13 @@ public class UserFunctions {
         // getting JSON Object
         JSONObject json = jsonParser.getJSONFromUrl(registerURL, params);
         // return json
+        return json;
+    }
+
+    public JSONObject readData(){
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("tag",read_tag));
+        JSONObject json = jsonParser.getJSONFromUrl(registerURL, params);
         return json;
     }
 

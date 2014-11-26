@@ -32,7 +32,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Login Table Columns names
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
-    public static final String KEY_EMAIL = "email";
+    private static final String KEY_EMAIL = "email";
     private static final String KEY_UID = "uid";
     private static final String KEY_CREATED_AT = "created_at";
 
@@ -143,7 +143,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Log.v("LT", response);
         return response;
     }
-
     /**
      * Re crate database Delete all tables and create them again
      * */

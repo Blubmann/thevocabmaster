@@ -19,5 +19,8 @@
     <string name="SpracheÄndern">Sprache ändern</string>
     <string name="Überprüfen">Überprüfen</string>
     <string name="EingabeWort">Bitte gesuchtes Wort eingeben</string>
+    <string name="ListeErstellen">Wortliste erstellen</string>
+    <string name="AddWord">Füge Wort hinzu</string>
+    <string name="DeleteWord">Lösche letztes Wort</string>
 
 </resources>
