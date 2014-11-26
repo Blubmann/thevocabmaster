@@ -10,7 +10,9 @@
         android:text="@string/WörterÜben"
         android:textSize="25dip"
         android:gravity="center"
-        android:padding="10dip" />
+        android:padding="10dip"
+        android:textColor="#333333"
+        android:background="@drawable/backgroundueberschrift"/>/>
 
     <TextView
         android:layout_width="408dp"
@@ -19,7 +21,8 @@
         android:id="@+id/textView"
         android:textSize="20sp"
         android:textIsSelectable="false"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:layout_marginTop="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,8 +36,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/eingabeKasten"
-        android:text="Hier Eingeben" />
+        android:id="@+id/eingabeKasten" />
 
     <Button
         android:layout_width="wrap_content"
