@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import com.example.R;
 import com.example.fabianfleischer.thevocabmaster.library.UserFunctions;
 

@@ -12,7 +12,7 @@
         android:gravity="center"
         android:padding="10dip"
         android:textColor="#333333"
-        android:background="@drawable/backgroundueberschrift"/>/>
+        android:background="@drawable/backgroundueberschrift"/>
 
     <TextView
         android:layout_width="408dp"
@@ -85,15 +85,5 @@
         android:text="New Text"
         android:id="@+id/ausgabeStatistik"
         android:layout_marginBottom="-20dp" />
-
-    <Button android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Logout"
-        android:textSize="20dip"
-        android:textColor="#21dbd4"
-        android:textStyle="bold"
-        android:id="@+id/btnLogout"
-        android:layout_marginTop="180dp"
-        android:background="@null"/>
 
 </LinearLayout>

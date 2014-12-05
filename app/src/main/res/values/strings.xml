@@ -22,5 +22,7 @@
     <string name="ListeErstellen">Wortliste erstellen</string>
     <string name="AddWord">Füge Wort hinzu</string>
     <string name="DeleteWord">Lösche letztes Wort</string>
+    <string name="Deutsch">Deutsch</string>
+    <string name="Englisch">Englisch</string>
 
 </resources>

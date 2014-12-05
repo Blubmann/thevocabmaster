@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
+ * BlubberBlubber
  * Created by fabian.fleischer on 22.11.2014.
  */
 public class ListeActivity extends ListActivity implements View.OnClickListener {
@@ -39,7 +40,7 @@ public class ListeActivity extends ListActivity implements View.OnClickListener 
         }
 
         List values =wDBop.getAllWords();
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,values);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_2,values);
         setListAdapter(adapter);
     }
 
