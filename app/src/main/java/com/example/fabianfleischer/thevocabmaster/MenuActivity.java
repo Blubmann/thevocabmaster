@@ -21,7 +21,7 @@ public class MenuActivity extends Activity implements View.OnClickListener {
     Button btnStatistik;
     Button btnÜben;
     Button btnListeErstellen;
-    //Das ist ein Test
+    //Das ist ein Test, die zweite
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
