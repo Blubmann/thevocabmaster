@@ -36,16 +36,5 @@
         android:layout_alignParentRight="true"
         android:onClick="del"
         android:text="@string/DeleteWord"/>
-    <ListView
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/delBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@android:id/list"
-        android:dividerHeight="20.0sp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        tools:listitem="@android:layout/simple_list_item_2">
-        </ListView>
 
 </RelativeLayout>
