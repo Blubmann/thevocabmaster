@@ -1,5 +1,6 @@
 package com.example.fabianfleischer.thevocabmaster;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +13,9 @@ import com.example.R;
  * BlubberBlubber
  * Created by fabian.fleischer on 22.11.2014.
  */
-public class ListeActivity extends ListActivity implements View.OnClickListener {
+public class ListeActivity extends Activity implements View.OnClickListener {
 
+    @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.liste);
@@ -35,13 +37,7 @@ public class ListeActivity extends ListActivity implements View.OnClickListener 
 
     }
 
-    protected void onResume() {
 
-    }
-
-    protected void onPause() {
-
-    }
 
     @Override
     public void onClick(View view) {

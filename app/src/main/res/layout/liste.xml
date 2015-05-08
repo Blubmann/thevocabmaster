@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:background="@drawable/background">
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,7 +18,6 @@
         android:layout_height="wrap_content"
         android:ems="8"
         android:id="@+id/englisch"
-        android:layout_alignBottom="@+id/englisch"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:text="@string/Englisch" />
@@ -37,4 +37,62 @@
         android:onClick="del"
         android:text="@string/DeleteWord"/>
 
-</RelativeLayout>
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:stretchColumns="1">
+
+        <TableRow
+            android:id="@+id/tableRow1"
+
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" >
+
+            <!-- Spalte 1 -->
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:text="Column 1" />
+
+            <!-- Spalte 2 -->
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:text="Column 2" />s
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+        </TableRow>
+
+        <!-- weitere Zeilen
+        <TableRow ... </TableRow>
+        -->
+    </TableLayout>
+</LinearLayout>

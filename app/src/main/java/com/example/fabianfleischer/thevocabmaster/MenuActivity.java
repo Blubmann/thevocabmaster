@@ -96,7 +96,7 @@ public class MenuActivity extends Activity implements View.OnClickListener {
 
     public void buttonErstellenClicked(){
         Intent i = new Intent(getApplicationContext(),
-                test.class);
+                ListeActivity.class);
         startActivity(i);
         finish();
     }
