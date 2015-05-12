@@ -11,7 +11,6 @@ import android.widget.EditText;
 
 import com.example.R;
 import com.example.fabianfleischer.thevocabmaster.library.DatabaseHandler;
-import com.example.fabianfleischer.thevocabmaster.library.JSONParser;
 import com.example.fabianfleischer.thevocabmaster.library.UserFunctions;
 
 import org.json.JSONException;
@@ -21,9 +20,8 @@ public class LoginTask extends AsyncTask<String, Void, Integer> {
 
     private ProgressDialog progressDialog;
     private LoginActivity activity;
+    private UserFunctions userFunction;
     private int id = -1;
-    private JSONParser jsonParser;
-    private DatabaseHandler db;
     private static String loginURL = "http://193.196.7.23/android_login_api/";
     private static String registerURL = "http://193.196.7.23/android_login_api/";
     private static String KEY_SUCCESS = "success";
@@ -52,7 +50,7 @@ public class LoginTask extends AsyncTask<String, Void, Integer> {
         EditText passwordEdit = (EditText)activity.findViewById(R.id.loginPassword);
         String email = userName.getText().toString();
         String password = passwordEdit.getText().toString();
-        UserFunctions userFunction = new UserFunctions();
+        userFunction = new UserFunctions();
         JSONObject json = userFunction.loginUser(email, password);
 
         // check for login response
@@ -63,12 +61,12 @@ public class LoginTask extends AsyncTask<String, Void, Integer> {
                 if(Integer.parseInt(res) == 1){
                     //user successfully logged in
                     // Store user details in SQLite Database
-                    db = new DatabaseHandler(activity.getApplicationContext());
+                    userFunction.startDBHandler(activity.getApplicationContext());
                     JSONObject json_user = json.getJSONObject("user");
                     //Log.v("name", json_user.getString(KEY_NAME));
                     // Clear all previous data in database
                     userFunction.logoutUser(activity.getApplicationContext());
-                    db.addUser(json_user.getString(KEY_EMAIL));
+                    userFunction.addUser(json_user.getString(KEY_EMAIL));
 
                     responseCode = 1;
                     // Close Login Screen

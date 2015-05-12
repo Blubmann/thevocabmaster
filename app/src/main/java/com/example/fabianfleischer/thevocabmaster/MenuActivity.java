@@ -1,12 +1,9 @@
 package com.example.fabianfleischer.thevocabmaster;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.R;
 import com.example.fabianfleischer.thevocabmaster.library.UserFunctions;
@@ -29,9 +26,9 @@ public class MenuActivity extends Activity implements View.OnClickListener {
         init();
     }
     public void init() {
-        einbindenOberfläche();
+        einbindenOberflaeche();
     }
-    public void einbindenOberfläche() {
+    public void einbindenOberflaeche() {
         btnÜben = (Button) findViewById(R.id.btnÜben);
         btnStatistik = (Button) findViewById(R.id.btnStatistik);
         btnSettings = (Button) findViewById(R.id.btnSettings);
@@ -80,7 +77,7 @@ public class MenuActivity extends Activity implements View.OnClickListener {
                 buttonErstellenClicked();
                 break;
             case R.id.btnStatistik:
-                buttonStatistikMenüclicked();
+                buttonStatistikMenueclicked();
                 break;
             case R.id.btnÜben:
                 buttonÜbenclicked();
@@ -100,7 +97,7 @@ public class MenuActivity extends Activity implements View.OnClickListener {
         startActivity(i);
         finish();
     }
-    public void buttonStatistikMenüclicked(){
+    public void buttonStatistikMenueclicked(){
 //TODO
     }
     public void buttonSettingsclicked(){

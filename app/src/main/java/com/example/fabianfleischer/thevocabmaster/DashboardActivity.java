@@ -24,7 +24,7 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
     //Schnittstellenbezogene Variablen.
     public Button buttonWeiter;
     public Button buttonStatistik;
-    public Button buttonPrüfen;
+    public Button buttonPruefen;
     public Button buttonSprachwechsel;
     public TextView gesucht;
     public TextView ausgabe;
@@ -42,11 +42,11 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
     public String[] ausgewVoc = new String[2];      // Die momentan Gewählte Variable
 
     // Überürpüfungsfelder
-    public int[] anzahlüberprüft = new int[anzahlVoc];
+    public int[] anzahlueberprueft = new int[anzahlVoc];
     public int[] anzahlRichtig = new int[anzahlVoc];
     public int[] anzahlFalsch = new int[anzahlVoc];
 
-    public int[] alt_anzahlüberprüft = new int[anzahlVoc];
+    public int[] alt_anzahlueberprueft = new int[anzahlVoc];
     public int[] alt_anzahlRichtig = new int[anzahlVoc];
     public int[] alt_anzahlFalsch = new int[anzahlVoc];
 
@@ -76,7 +76,7 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
     //Alles was mit initialisierung zu tun hat
     public void initiate() {
         initResetStatistikArrays();
-        bindeOberflächeEin();
+        bindeOberflaecheEin();
         createvocabs();
         waehleNeueVariable();
         elementeAusblenden();
@@ -103,10 +103,10 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
         vocabs[0][9] = "Tür";
         vocabs[1][9] = "door";
     }            // Hier wird das Array mit Daten gelanden
-    public void bindeOberflächeEin(){
+    public void bindeOberflaecheEin(){
 
         eingabe = (EditText) findViewById(R.id.eingabeKasten);
-        buttonPrüfen = (Button) findViewById(R.id.buttonPrüfen);
+        buttonPruefen = (Button) findViewById(R.id.buttonPruefen);
         buttonStatistik = (Button) findViewById(R.id.buttonStatistik);
         buttonWeiter = (Button) findViewById(R.id.buttonWeiter);
         buttonSprachwechsel = (Button) findViewById(R.id.buttonSprachWechsel);
@@ -117,18 +117,18 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
         // In Klick-Listener Laden
         buttonWeiter.setOnClickListener(this);
         buttonStatistik.setOnClickListener(this);
-        buttonPrüfen.setOnClickListener(this);
+        buttonPruefen.setOnClickListener(this);
         eingabe.setOnClickListener(this);
         buttonSprachwechsel.setOnClickListener(this);
     }      // Hier werden die Id's der XML-Element mit den Variablen des Java-Quelltextes verlinkt
     public void initResetStatistikArrays(){
         for (int i=0;i<anzahlVoc;i++){
-            anzahlüberprüft[i]= 0;
+            anzahlueberprueft[i]= 0;
             anzahlRichtig[i]= 0;
             anzahlFalsch[i]= 0;
             alt_anzahlFalsch[i]= 0;
             alt_anzahlRichtig[i]= 0;
-            alt_anzahlüberprüft[i]= 0;
+            alt_anzahlueberprueft[i]= 0;
         }
     }// Reset aller Statistike
     public void elementeAusblenden(){
@@ -139,7 +139,7 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
     public void reset(){
         waehleNeueVariable();
         elementeAusblenden();
-        buttonPrüfen.setVisibility(View.VISIBLE);
+        buttonPruefen.setVisibility(View.VISIBLE);
         buttonWeiter.setVisibility(View.INVISIBLE);
         buttonStatistik.setVisibility(View.INVISIBLE);
         ausgabeStatistik.setVisibility(View.INVISIBLE);
@@ -150,8 +150,8 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
     //Klick-Interaktion
     public void onClick(View view) {
         switch (view.getId()) {                                                 //Checkt welches Element geklickt wurde.
-            case R.id.buttonPrüfen:
-                buttonPrüfenclicked();
+            case R.id.buttonPruefen:
+                buttonPruefenclicked();
                 break;
             case R.id.buttonStatistik:
                 buttonStatistikclicked();
@@ -166,7 +166,7 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
                 break;
         }
     }           // Switch-Case welcher Button gewählt wurde
-    public void buttonPrüfenclicked() {
+    public void buttonPruefenclicked() {
         boolean check = false;
         check = checkVocab();
         aktualisiereStatistik(check);
@@ -179,7 +179,7 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
     }         // Button zur Auswertung von Statistik
     public void buttonWeiterclicked(){
         waehleNeueVariable();
-        buttonPrüfen.setVisibility(View.VISIBLE);
+        buttonPruefen.setVisibility(View.VISIBLE);
         buttonWeiter.setVisibility(View.INVISIBLE);
         buttonStatistik.setVisibility(View.INVISIBLE);
         ausgabeStatistik.setVisibility(View.INVISIBLE);
@@ -251,9 +251,9 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
     public void switchStatistik(){
         int hilfsvar= 0;
         for(int i =0; i < anzahlVoc; i++) {
-            hilfsvar = alt_anzahlüberprüft[i];
-            alt_anzahlüberprüft[i] = anzahlüberprüft[i];
-            anzahlüberprüft[i] = hilfsvar;
+            hilfsvar = alt_anzahlueberprueft[i];
+            alt_anzahlueberprueft[i] = anzahlueberprueft[i];
+            anzahlueberprueft[i] = hilfsvar;
 
             hilfsvar = alt_anzahlRichtig[i];
             alt_anzahlRichtig[i] = anzahlRichtig[i];
@@ -265,7 +265,7 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
         }
     }
     public void aktualisiereStatistik(boolean check){
-        anzahlüberprüft[vocnum]++;
+        anzahlueberprueft[vocnum]++;
         if (check == false)
         {
             anzahlFalsch[vocnum]++;
@@ -289,7 +289,7 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
     public void zeigeStatistic(){
         ausgabeStatistik.setVisibility(View.VISIBLE);
         ausgabeStatistik.setText("Ihre Statistik zur Vokabel " + vocabs[0][vocnum] + "/" + vocabs[1][vocnum]+ " sieht follgendermaßen aus: " +
-                "\n Anzahl der Überprüfungen: " + anzahlüberprüft[vocnum] +
+                "\n Anzahl der Überprüfungen: " + anzahlueberprueft[vocnum] +
                 "\n Anzahl richtiger Antworten: " + anzahlRichtig[vocnum] +
                 "\n Anzahl falscher Antworten: " + anzahlFalsch[vocnum]);
     }              // Anzeigen von Statistic
@@ -302,7 +302,7 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
     }
     public void ueberpruefungBeendet(boolean check){
         ausgabeErgebnis(check);
-        buttonPrüfen.setVisibility(View.INVISIBLE);
+        buttonPruefen.setVisibility(View.INVISIBLE);
         buttonWeiter.setVisibility(View.VISIBLE);
         buttonStatistik.setVisibility(View.VISIBLE);
     }       // Was wird nach der Beantwortung gemacht (WeiterButton/Statistic)

@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Überprüfen"
-        android:id="@+id/buttonPrüfen"
+        android:id="@+id/buttonPruefen"
         android:layout_marginBottom="-50dp" />
 
     <Button

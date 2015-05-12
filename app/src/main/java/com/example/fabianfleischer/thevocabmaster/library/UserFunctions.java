@@ -16,6 +16,7 @@ import java.util.List;
 public class UserFunctions {
 
     private JSONParser jsonParser;
+    private DatabaseHandler dbhandler;
 
     private static String loginURL = "http://193.196.7.23/android_login_api/";
     private static String registerURL = "http://193.196.7.23/android_login_api/";
@@ -26,12 +27,12 @@ public class UserFunctions {
     private static String question_tag = "question";
 
     // constructor
-    public UserFunctions(){
+    public UserFunctions() {
         jsonParser = new JSONParser();
     }
 
     //login with user provided email/pass
-    public JSONObject loginUser(String email, String password){
+    public JSONObject loginUser(String email, String password) {
         // Building Parameters
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("tag", login_tag));
@@ -44,7 +45,7 @@ public class UserFunctions {
     }
 
     //register a new user with name/email/pass
-    public JSONObject registerUser(String name, String email, String password){
+    public JSONObject registerUser(String name, String email, String password) {
         // Building Parameters
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("tag", register_tag));
@@ -53,25 +54,24 @@ public class UserFunctions {
         params.add(new BasicNameValuePair("password", password));
 
 
-
         // getting JSON Object
         JSONObject json = jsonParser.getJSONFromUrl(registerURL, params);
         // return json
         return json;
     }
 
-    public JSONObject readData(){
+    public JSONObject readData() {
         List<NameValuePair> params = new ArrayList<NameValuePair>();
-        params.add(new BasicNameValuePair("tag",read_tag));
+        params.add(new BasicNameValuePair("tag", read_tag));
         JSONObject json = jsonParser.getJSONFromUrl(registerURL, params);
         return json;
     }
 
     //determine if the user is logged in
-    public boolean isUserLoggedIn(Context context){
+    public boolean isUserLoggedIn(Context context) {
         DatabaseHandler db = new DatabaseHandler(context);
         int count = db.getRowCount();
-        if(count > 0){
+        if (count > 0) {
             // user logged in
             return true;
         }
@@ -79,9 +79,17 @@ public class UserFunctions {
     }
 
     //logout the user
-    public boolean logoutUser(Context context){
+    public boolean logoutUser(Context context) {
         DatabaseHandler db = new DatabaseHandler(context);
         db.resetTables();
         return true;
+    }
+
+    public void startDBHandler(Context context) {
+        dbhandler = new DatabaseHandler(context);
+    }
+
+    public void addUser(String user) {
+        dbhandler.addUser(user);
     }
 }

@@ -11,7 +11,6 @@ import android.widget.EditText;
 
 import com.example.R;
 import com.example.fabianfleischer.thevocabmaster.library.DatabaseHandler;
-import com.example.fabianfleischer.thevocabmaster.library.JSONParser;
 import com.example.fabianfleischer.thevocabmaster.library.UserFunctions;
 
 import org.json.JSONException;
@@ -21,8 +20,8 @@ public class RegisterTask extends AsyncTask<String, Void, Integer> {
 
     private ProgressDialog progressDialog;
     private RegisterActivity activity;
+    private UserFunctions userFunction;
     private int id = -1;
-    private JSONParser jsonParser;
     private DatabaseHandler db;
     private static String loginURL = "http://193.196.7.23/android_login_api/";
     private static String registerURL = "http://193.196.7.23/android_login_api/";
@@ -66,7 +65,7 @@ public class RegisterTask extends AsyncTask<String, Void, Integer> {
         String email = userName.getText().toString();
         String password = passwordEdit.getText().toString();
         Log.v(email, password);
-        UserFunctions userFunction = new UserFunctions();
+        userFunction = new UserFunctions();
         JSONObject json = userFunction.registerUser(name, email, password);
 
         // check for login response
