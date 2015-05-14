@@ -92,4 +92,8 @@ public class UserFunctions {
     public void addUser(String user) {
         dbhandler.addUser(user);
     }
+
+    public void addUser(String name, String mail, String uid, String create){
+        dbhandler.addUser(name, mail, uid, create);
+    }
 }
