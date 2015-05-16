@@ -68,6 +68,9 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            Intent i= new Intent(this, HilfeActivity.class);
+            startActivity(i);
+
             return true;
         }
         return super.onOptionsItemSelected(item);
