@@ -34,6 +34,7 @@ public class DatabaseDataSource {
         values.put(DatabaseOwnWords.COLUMN_DEUTSCH, deutsch);
         values.put(DatabaseOwnWords.COLUMN_ENGLISCH, englisch);
         long insertID=database.insert(DatabaseOwnWords.TABLE_WORDS, null, values);
+        System.out.println("Das steht in insertID "+values);
         Cursor cursor = database.query(DatabaseOwnWords.TABLE_WORDS,allColumns,DatabaseOwnWords.COLUMN_ID + "=" + insertID,null,null,null,null);
         cursor.moveToFirst();
         Word newWord = cursorToWord(cursor);

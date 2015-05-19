@@ -73,10 +73,11 @@ public class LoginActivity extends Activity {
         });
     }
 
-    public void showLoginError(int responseCode) {
+    public boolean showLoginError(int responseCode) {
         int duration = Toast.LENGTH_LONG;
         Context context = getApplicationContext();
         Toast toast = Toast.makeText(context, "Login Error", duration);
         toast.show();
+        return true;
     }
 }

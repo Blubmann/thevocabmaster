@@ -58,6 +58,7 @@ public class ListeActivity extends ListActivity implements View.OnClickListener 
             case R.id.addBtn:
                 String[] words = new String[]{"Deutsch", "german"};
                 word = dataSource.createWord(words[0],words[1]);
+                System.out.println("Das steht in word "+word);
                 adapter.add(word);
                 addWord();
                 break;

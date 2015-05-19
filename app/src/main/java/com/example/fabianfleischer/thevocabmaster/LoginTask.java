@@ -10,7 +10,6 @@ import android.os.AsyncTask;
 import android.widget.EditText;
 
 import com.example.R;
-import com.example.fabianfleischer.thevocabmaster.library.DatabaseHandler;
 import com.example.fabianfleischer.thevocabmaster.library.UserFunctions;
 
 import org.json.JSONException;
@@ -90,10 +89,9 @@ public class LoginTask extends AsyncTask<String, Void, Integer> {
     }
 
     @Override
-    protected void onPostExecute(Integer responseCode)
-    {
-        EditText userName = (EditText)activity.findViewById(R.id.loginEmail);
-        EditText passwordEdit = (EditText)activity.findViewById(R.id.loginPassword);
+    protected void onPostExecute(Integer responseCode){
+        EditText userName = (EditText) activity.findViewById(R.id.loginEmail);
+        EditText passwordEdit = (EditText) activity.findViewById(R.id.loginPassword);
 
 
         if (responseCode == 1) {
