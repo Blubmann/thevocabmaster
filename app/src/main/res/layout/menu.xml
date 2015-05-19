@@ -14,7 +14,9 @@
         android:textSize="25dip"
         android:padding="10dip"
         android:singleLine="false"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textColor="#333333"
+        android:background="@drawable/backgroundueberschrift"/>
 
     <Button
     android:layout_width="match_parent"

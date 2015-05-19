@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 
+
 import com.example.R;
 import com.example.fabianfleischer.thevocabmaster.library.DatabaseDataSource;
 import com.example.fabianfleischer.thevocabmaster.library.Word;

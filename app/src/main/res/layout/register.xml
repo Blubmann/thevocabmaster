@@ -21,7 +21,7 @@
             android:singleLine="false"
             android:gravity="center"
             android:textColor="#333333"
-            android:background="@drawable/backgroundueberschrift"/>/>
+            android:background="@drawable/backgroundueberschrift"/> //Aus Datei
         <!--  Name Label -->
         <TextView
             android:layout_width="fill_parent"

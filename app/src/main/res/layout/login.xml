@@ -22,7 +22,7 @@
             android:singleLine="false"
             android:gravity="center"
             android:textColor="#333333"
-            android:background="@drawable/backgroundueberschrift"/>
+            android:background="@drawable/backgroundueberschrift"/> //Aus Datei
         <!--  Email Label -->
         <TextView
             android:layout_width="fill_parent"
