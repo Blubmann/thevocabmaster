@@ -16,7 +16,7 @@ public class MenuActivity extends Activity implements View.OnClickListener {
     Button btnLogout;
     Button btnSettings;
     Button btnStatistik;
-    Button btnÜben;
+    Button btnUeben;
     Button btnListeErstellen;
     //Das ist ein Test, die zweite
     @Override
@@ -29,11 +29,11 @@ public class MenuActivity extends Activity implements View.OnClickListener {
         einbindenOberflaeche();
     }
     public void einbindenOberflaeche() {
-        btnÜben = (Button) findViewById(R.id.btnÜben);
+        btnUeben = (Button) findViewById(R.id.btnUeben);
         btnStatistik = (Button) findViewById(R.id.btnStatistik);
         btnSettings = (Button) findViewById(R.id.btnSettings);
         btnListeErstellen = (Button) findViewById(R.id.btnListeErstellen);
-        btnÜben.setOnClickListener(this);
+        btnUeben.setOnClickListener(this);
         btnStatistik.setOnClickListener(this);
         btnSettings.setOnClickListener(this);
         btnListeErstellen.setOnClickListener(this);
@@ -79,7 +79,7 @@ public class MenuActivity extends Activity implements View.OnClickListener {
             case R.id.btnStatistik:
                 buttonStatistikMenueclicked();
                 break;
-            case R.id.btnÜben:
+            case R.id.btnUeben:
                 buttonÜbenclicked();
                 break;
         }

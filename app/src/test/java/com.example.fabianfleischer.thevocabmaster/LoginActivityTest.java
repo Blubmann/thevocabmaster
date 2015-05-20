@@ -64,10 +64,10 @@ public class LoginActivityTest{
         EditText inputEmail = (EditText) activity.findViewById(R.id.loginEmail);
         EditText inputPassword = (EditText) activity.findViewById(R.id.loginPassword);
 
-        inputEmail.setText("BlubberBernd@long.de");
+        inputEmail.setText("Hansi@long.de");
         inputPassword.setText("Blubber");
         btnLogin.performClick();
-        assertThat(ShadowToast.getTextOfLatestToast().toString(), equalTo("Login Error"));
+        assertThat(ShadowToast.getTextOfLatestToast(), equalTo("Login Error"));
     }
 }
 

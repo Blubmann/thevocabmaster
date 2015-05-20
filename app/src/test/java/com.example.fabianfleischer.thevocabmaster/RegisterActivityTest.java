@@ -48,7 +48,22 @@ public class RegisterActivityTest {
     }
 
     @Test
-    public void clickingLoginButton_shouldChangeActivityToDashboard() throws Exception {
+    public void clickingRegisterButton_getError() throws NullPointerException {
+
+        Button btnRegister = (Button) activity.findViewById(R.id.btnRegister);
+        EditText inputName = (EditText) activity.findViewById(R.id.registerName);
+        EditText inputEmail = (EditText) activity.findViewById(R.id.registerEmail);
+        EditText inputPassword = (EditText) activity.findViewById(R.id.registerPassword);
+
+        inputName.setText("Bernd");
+        inputEmail.setText("BlubberBernd@long.de");
+        inputPassword.setText("Blubber");
+        btnRegister.performClick();
+        assertThat(ShadowToast.getTextOfLatestToast().toString(), equalTo("Register Error"));
+    }
+
+    @Test
+    public void clickingRegisterButton_shouldChangeActivityToDashboard() throws Exception {
 
         Button btnRegister = (Button) activity.findViewById(R.id.btnRegister);
         EditText inputName = (EditText) activity.findViewById(R.id.registerName);
