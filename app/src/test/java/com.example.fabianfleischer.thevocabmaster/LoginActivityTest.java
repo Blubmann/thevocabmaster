@@ -20,8 +20,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.R;
-
-
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = "src/main/AndroidManifest.xml")
 public class LoginActivityTest{

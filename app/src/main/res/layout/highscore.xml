@@ -6,8 +6,6 @@
     android:background="@drawable/background"
     android:weightSum="1">
 
-    //Dummy-Daten
-
     <TextView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="25dip"
