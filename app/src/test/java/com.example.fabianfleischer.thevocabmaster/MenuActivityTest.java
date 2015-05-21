@@ -53,7 +53,6 @@ public class MenuActivityTest {
     public void clickingLoginButton_shouldChangeActivityToErstellen() throws NullPointerException {
 
         Button btnErstellen = (Button) activity.findViewById(R.id.btnListeErstellen);
-
         btnErstellen.performClick();
         Intent intent = Shadows.shadowOf(activity).peekNextStartedActivity();
         assertEquals(ListeActivity.class.getCanonicalName(), intent.getComponent().getClassName());
