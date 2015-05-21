@@ -50,7 +50,6 @@ public class LoginActivityTest{
     public void clickingRegisterButton_shouldChangeActivityToRegister() throws Exception {
 
         Button btnLogin = (Button) activity.findViewById(R.id.btnLinkToRegisterScreen);
-
         btnLogin.performClick();
         Intent intent = Shadows.shadowOf(activity).peekNextStartedActivity();
         assertEquals(RegisterActivity.class.getCanonicalName(), intent.getComponent().getClassName());
