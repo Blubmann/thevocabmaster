@@ -21,15 +21,8 @@ public class RegisterTask extends AsyncTask<String, Void, Integer> {
     private ProgressDialog progressDialog;
     private RegisterActivity activity;
     private UserFunctions userFunction;
-    private int id = -1;
-    private static String loginURL = "http://193.196.7.23/android_login_api/";
-    private static String registerURL = "http://193.196.7.23/android_login_api/";
-    private static String KEY_SUCCESS = "success";
-    private static String KEY_ERROR = "error";
-    private static String KEY_ERROR_MSG = "error_msg";
     private static String KEY_UID = "uid";
     private static String KEY_NAME = "name";
-    private static String KEY_EMAIL = "email";
     private static String KEY_CREATED_AT = "created_at";
     private int responseCode = 0;
 
@@ -69,9 +62,9 @@ public class RegisterTask extends AsyncTask<String, Void, Integer> {
 
         // check for login response
         try {
-            if (json.getString(KEY_SUCCESS) != null) {
+            if (json.getString(LoginTask.KEY_SUCCESS) != null) {
                 //registerErrorMsg.setText("");
-                String res = json.getString(KEY_SUCCESS);
+                String res = json.getString(LoginTask.KEY_SUCCESS);
                 if(Integer.parseInt(res) == 1){
                     // user successfully registred
                     // Store user details in SQLite Database
@@ -81,7 +74,7 @@ public class RegisterTask extends AsyncTask<String, Void, Integer> {
                     // Clear all previous data in database
                     userFunction.logoutUser(activity.getApplicationContext());
                     userFunction.addUser(json_user.getString(KEY_NAME),
-                            json_user.getString(KEY_EMAIL), json.getString(KEY_UID),
+                            json_user.getString(LoginTask.KEY_EMAIL), json.getString(KEY_UID),
                             json_user.getString(KEY_CREATED_AT));
                     //successful registration
                     responseCode = 1;

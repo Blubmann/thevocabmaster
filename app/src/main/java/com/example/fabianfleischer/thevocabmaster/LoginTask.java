@@ -20,16 +20,8 @@ public class LoginTask extends AsyncTask<String, Void, Integer> {
     private ProgressDialog progressDialog;
     private LoginActivity activity;
     private UserFunctions userFunction;
-    private int id = -1;
-    private static String loginURL = "http://193.196.7.23/android_login_api/";
-    private static String registerURL = "http://193.196.7.23/android_login_api/";
-    private static String KEY_SUCCESS = "success";
-    private static String KEY_ERROR = "error";
-    private static String KEY_ERROR_MSG = "error_msg";
-    private static String KEY_UID = "uid";
-    private static String KEY_NAME = "name";
-    private static String KEY_EMAIL = "email";
-    private static String KEY_CREATED_AT = "created_at";
+    public static final String KEY_SUCCESS = "success";
+    public static final String KEY_EMAIL = "email";
     private int responseCode = 0;
 
     public LoginTask(LoginActivity activity, ProgressDialog progressDialog)
