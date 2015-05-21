@@ -43,7 +43,6 @@ public class MenuActivityTest {
     public void clickingLoginButton_shouldChangeActivityToUeben() throws NullPointerException {
 
         Button btnUeben = (Button) activity.findViewById(R.id.btnUeben);
-
         btnUeben.performClick();
         Intent intent = Shadows.shadowOf(activity).peekNextStartedActivity();
         assertEquals(DashboardActivity.class.getCanonicalName(), intent.getComponent().getClassName());
