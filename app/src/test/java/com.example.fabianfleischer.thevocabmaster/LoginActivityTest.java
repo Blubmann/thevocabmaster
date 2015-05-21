@@ -41,7 +41,6 @@ public class LoginActivityTest{
     public void clickingLoginButton_shouldChangeActivityToMenu() throws Exception {
 
         Button btnLogin = (Button) activity.findViewById(R.id.btnLogin);
-
         btnLogin.performClick();
         Intent intent = Shadows.shadowOf(activity).peekNextStartedActivity();
         assertEquals(MenuActivity.class.getCanonicalName(), intent.getComponent().getClassName());
