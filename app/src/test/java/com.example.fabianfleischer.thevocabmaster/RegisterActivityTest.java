@@ -59,7 +59,7 @@ public class RegisterActivityTest {
         inputEmail.setText("BlubberBernd@long.de");
         inputPassword.setText("Blubber");
         btnRegister.performClick();
-        assertThat(ShadowToast.getTextOfLatestToast().toString(), equalTo("Register Error"));
+        assertThat(ShadowToast.getTextOfLatestToast(), equalTo("Register Error"));
     }
 
     @Test

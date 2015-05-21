@@ -17,7 +17,7 @@ public class MenuActivity extends Activity implements View.OnClickListener {
     Button btnSettings;
     Button btnStatistik;
     Button btnUeben;
-    Button btnListeErstellen;
+    Button btnErstellen;
     //Das ist ein Test, die zweite
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,11 +32,11 @@ public class MenuActivity extends Activity implements View.OnClickListener {
         btnUeben = (Button) findViewById(R.id.btnUeben);
         btnStatistik = (Button) findViewById(R.id.btnStatistik);
         btnSettings = (Button) findViewById(R.id.btnSettings);
-        btnListeErstellen = (Button) findViewById(R.id.btnListeErstellen);
+        btnErstellen = (Button) findViewById(R.id.btnListeErstellen);
         btnUeben.setOnClickListener(this);
         btnStatistik.setOnClickListener(this);
         btnSettings.setOnClickListener(this);
-        btnListeErstellen.setOnClickListener(this);
+        btnErstellen.setOnClickListener(this);
     }
     public void checkLoginStatus() {
 /**

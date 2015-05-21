@@ -1,4 +1,5 @@
 package com.example.fabianfleischer.thevocabmaster;
+
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertNotNull;
@@ -10,6 +11,7 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.Shadows;
 import org.robolectric.annotation.Config;
+import org.robolectric.shadows.ShadowActivity;
 import org.robolectric.shadows.ShadowHandler;
 import org.robolectric.shadows.ShadowToast;
 
@@ -27,9 +29,8 @@ import com.example.R;
 public class MenuActivityTest {
 
     private MenuActivity activity;
-
     @Before
-    public void setup()  {
+    public void setup(){
         activity = Robolectric.buildActivity(MenuActivity.class).create().get();
     }
 
