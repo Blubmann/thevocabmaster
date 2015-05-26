@@ -26,11 +26,11 @@ import com.example.R;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = "src/main/AndroidManifest.xml")
-public class MenuActivityTest {
+public class MenuActivityTest{
 
     private MenuActivity activity;
     @Before
-    public void setup(){
+    public void setup() {
         activity = Robolectric.buildActivity(MenuActivity.class).create().get();
     }
 
@@ -40,7 +40,7 @@ public class MenuActivityTest {
     }
 
     @Test
-    public void clickingLoginButton_shouldChangeActivityToUeben() throws NullPointerException {
+    public void clickingLoginButton_shouldChangeActivityToUeben() throws Exception {
 
         Button btnUeben = (Button) activity.findViewById(R.id.btnUeben);
         btnUeben.performClick();
@@ -49,7 +49,7 @@ public class MenuActivityTest {
     }
 
     @Test
-    public void clickingLoginButton_shouldChangeActivityToErstellen() throws NullPointerException {
+    public void clickingLoginButton_shouldChangeActivityToErstellen() throws Exception {
 
         Button btnErstellen = (Button) activity.findViewById(R.id.btnListeErstellen);
         btnErstellen.performClick();

@@ -26,7 +26,7 @@ public class LoginActivityTest{
 
     private LoginActivity activity;
     @Before
-    public void setup()  {
+    public void setup() {
         activity = Robolectric.buildActivity(LoginActivity.class).create().get();
     }
 
@@ -59,7 +59,6 @@ public class LoginActivityTest{
         Button btnLogin = (Button) activity.findViewById(R.id.btnLogin);
         EditText inputEmail = (EditText) activity.findViewById(R.id.loginEmail);
         EditText inputPassword = (EditText) activity.findViewById(R.id.loginPassword);
-
         inputEmail.setText("Hansi@long.de");
         inputPassword.setText("Blubber");
         btnLogin.performClick();

@@ -23,7 +23,6 @@ public class MenuActivity extends Activity implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         checkLoginStatus();
-        init();
     }
     public void init() {
         einbindenOberflaeche();
@@ -33,10 +32,12 @@ public class MenuActivity extends Activity implements View.OnClickListener {
         btnStatistik = (Button) findViewById(R.id.btnStatistik);
         btnSettings = (Button) findViewById(R.id.btnSettings);
         btnErstellen = (Button) findViewById(R.id.btnListeErstellen);
+        btnLogout = (Button) findViewById(R.id.btnLogout);
         btnUeben.setOnClickListener(this);
         btnStatistik.setOnClickListener(this);
         btnSettings.setOnClickListener(this);
         btnErstellen.setOnClickListener(this);
+        btnLogout.setOnClickListener(this);
     }
     public void checkLoginStatus() {
 /**
@@ -46,18 +47,7 @@ public class MenuActivity extends Activity implements View.OnClickListener {
         userFunctions = new UserFunctions();
         if (userFunctions.isUserLoggedIn(getApplicationContext())) {
             setContentView(R.layout.menu);
-            btnLogout = (Button) findViewById(R.id.btnLogout);
-            btnLogout.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View arg0) {
-// TODO Auto-generated method stub
-                    userFunctions.logoutUser(getApplicationContext());
-                    Intent login = new Intent(getApplicationContext(), LoginActivity.class);
-                    login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(login);
-// Closing dashboard screen
-                    finish();
-                }
-            });
+            init();
         } else {
 // user is not logged in show login screen
             Intent login = new Intent(getApplicationContext(), LoginActivity.class);
@@ -80,11 +70,23 @@ public class MenuActivity extends Activity implements View.OnClickListener {
                 buttonStatistikMenueclicked();
                 break;
             case R.id.btnUeben:
-                buttonÜbenclicked();
+                buttonUebenclicked();
+                break;
+            case R.id.btnLogout:
+                buttonLogout();
                 break;
         }
     }
-    public void buttonÜbenclicked(){
+
+    public void buttonLogout(){
+        userFunctions.logoutUser(getApplicationContext());
+        Intent login = new Intent(getApplicationContext(), LoginActivity.class);
+        login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(login);
+        finish();
+    }
+
+    public void buttonUebenclicked(){
         Intent i = new Intent(getApplicationContext(),
                 DashboardActivity.class);
         startActivity(i);
