@@ -29,8 +29,12 @@ import com.example.R;
 public class MenuActivityTest{
 
     private MenuActivity activity;
+    private LoginActivity activityL;
     @Before
     public void setup() {
+        activityL = Robolectric.buildActivity(LoginActivity.class).create().get();
+        Button btnLogin = (Button) activityL.findViewById(R.id.btnLogin);
+        btnLogin.performClick();
         activity = Robolectric.buildActivity(MenuActivity.class).create().get();
     }
 
@@ -42,8 +46,8 @@ public class MenuActivityTest{
     @Test
     public void clickingLoginButton_shouldChangeActivityToUeben() throws Exception {
 
-        Button btnUeben = (Button) activity.findViewById(R.id.btnUeben);
-        btnUeben.performClick();
+        Button btnU = (Button) activity.findViewById(R.id.btnUeben);
+        btnU.performClick();
         Intent intent = Shadows.shadowOf(activity).peekNextStartedActivity();
         assertEquals(DashboardActivity.class.getCanonicalName(), intent.getComponent().getClassName());
     }

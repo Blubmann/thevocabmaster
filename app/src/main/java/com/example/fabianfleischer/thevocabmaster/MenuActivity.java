@@ -24,9 +24,6 @@ public class MenuActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         checkLoginStatus();
     }
-    public void init() {
-        einbindenOberflaeche();
-    }
     public void einbindenOberflaeche() {
         btnUeben = (Button) findViewById(R.id.btnUeben);
         btnStatistik = (Button) findViewById(R.id.btnStatistik);
@@ -47,7 +44,7 @@ public class MenuActivity extends Activity implements View.OnClickListener {
         userFunctions = new UserFunctions();
         if (userFunctions.isUserLoggedIn(getApplicationContext())) {
             setContentView(R.layout.menu);
-            init();
+            einbindenOberflaeche();
         } else {
 // user is not logged in show login screen
             Intent login = new Intent(getApplicationContext(), LoginActivity.class);
