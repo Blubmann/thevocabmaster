@@ -12,10 +12,11 @@
         android:gravity="center"
         android:padding="10dip"
         android:textColor="#333333"
-        android:background="@drawable/backgroundueberschrift"/> //Aus Datei
+        android:background="@drawable/backgroundueberschrift"/>
+    //Aus Datei
 
     <TextView
-        android:layout_width="408dp"
+        android:layout_width="304dp"
         android:layout_height="wrap_content"
         android:text="@string/EingabeWort"
         android:id="@+id/textView"
@@ -23,6 +24,7 @@
         android:textIsSelectable="false"
         android:singleLine="true"
         android:layout_marginTop="20dp" />
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -78,6 +80,13 @@
         android:id="@+id/buttonSprachWechsel"
         android:singleLine="false"
         android:layout_gravity="right" />
+
+    <ImageView
+        android:layout_width="46dp"
+        android:layout_height="30dp"
+        android:id="@+id/imageView"
+        android:layout_gravity="left"
+        android:src="@drawable/lautsprecher"/>
 
     <TextView
         android:layout_width="match_parent"
