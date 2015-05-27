@@ -1,6 +1,7 @@
 package com.example.fabianfleischer.thevocabmaster;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,4 +37,13 @@ public class HighscoreActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(HighscoreActivity.this, MenuActivity.class));
+        finish();
+
+    }
+
 }
