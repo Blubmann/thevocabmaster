@@ -50,11 +50,15 @@
         <activity
             android:name=".fabianfleischer.thevocabmaster.HilfeActivity"
             android:icon="@drawable/ic_launcher"
-            android:windowSoftInputMode="stateHidden"
-            android:parentActivityName=".fabianfleischer.thevocabmaster.DashboardActivity" >
+            android:parentActivityName=".fabianfleischer.thevocabmaster.DashboardActivity"
+            android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.fabianfleischer.thevocabmaster.DashboardActivity" />
+        </activity>
+        <activity
+            android:name=".fabianfleischer.thevocabmaster.HighscoreActivity"
+            android:label="@string/title_activity_highscore" >
         </activity>
     </application>
 

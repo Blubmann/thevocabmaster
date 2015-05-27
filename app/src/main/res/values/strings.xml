@@ -29,5 +29,6 @@
     <string name="action_settings">Settings</string>
     <string name="Highscore">Highscore</string>
     <string name="Beste">Das sind die besten Spieler:</string>
+    <string name="title_activity_highscore">HighscoreActivity</string>
 
 </resources>

@@ -18,6 +18,7 @@ public class MenuActivity extends Activity implements View.OnClickListener {
     Button btnStatistik;
     Button btnUeben;
     Button btnErstellen;
+    Button btnHighscore;
     //Das ist ein Test, die zweite
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,11 +31,13 @@ public class MenuActivity extends Activity implements View.OnClickListener {
         btnSettings = (Button) findViewById(R.id.btnSettings);
         btnErstellen = (Button) findViewById(R.id.btnListeErstellen);
         btnLogout = (Button) findViewById(R.id.btnLogout);
+        btnHighscore = (Button) findViewById(R.id.btnHighscore);
         btnUeben.setOnClickListener(this);
         btnStatistik.setOnClickListener(this);
         btnSettings.setOnClickListener(this);
         btnErstellen.setOnClickListener(this);
         btnLogout.setOnClickListener(this);
+        btnHighscore.setOnClickListener(this);
     }
     public void checkLoginStatus() {
 /**
@@ -72,6 +75,9 @@ public class MenuActivity extends Activity implements View.OnClickListener {
             case R.id.btnLogout:
                 buttonLogout();
                 break;
+            case R.id.btnHighscore:
+                buttonHighscoreclicked();
+                break;
         }
     }
 
@@ -96,6 +102,14 @@ public class MenuActivity extends Activity implements View.OnClickListener {
         startActivity(i);
         finish();
     }
+
+    public void buttonHighscoreclicked(){
+        Intent i = new Intent(getApplicationContext(),
+                HighscoreActivity.class);
+        startActivity(i);
+        finish();
+    }
+
     public void buttonStatistikMenueclicked(){
 //TODO
     }

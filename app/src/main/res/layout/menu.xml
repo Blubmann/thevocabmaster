@@ -43,6 +43,13 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/Highscore"
+        android:id="@+id/btnHighscore"
+        android:layout_marginTop="25dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="@string/action_hilfe"
         android:id="@+id/btnSettings"
         android:layout_gravity="center_horizontal"
