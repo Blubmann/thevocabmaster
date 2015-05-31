@@ -60,6 +60,10 @@
             android:name=".fabianfleischer.thevocabmaster.HighscoreActivity"
             android:label="@string/title_activity_highscore" >
         </activity>
+        <activity
+            android:name=".fabianfleischer.thevocabmaster.StatisticActivity"
+            android:label="@string/title_activity_statistic" >
+        </activity>
     </application>
 
 </manifest>

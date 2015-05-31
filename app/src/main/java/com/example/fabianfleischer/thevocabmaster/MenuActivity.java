@@ -111,6 +111,10 @@ public class MenuActivity extends Activity implements View.OnClickListener {
 
     public void buttonStatistikMenueclicked(){
 //TODO
+        Intent i = new Intent(getApplicationContext(),
+                StatisticActivity.class);
+        startActivity(i);
+        finish();
     }
     public void buttonSettingsclicked(){
 //TODO

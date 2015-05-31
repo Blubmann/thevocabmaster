@@ -32,4 +32,5 @@ public class Word {
         this.englisch=englisch;
     }
 
+    public String toString() { return this.deutsch +  " / " + this.englisch; }
 }

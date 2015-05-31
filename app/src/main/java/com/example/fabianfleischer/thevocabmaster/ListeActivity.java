@@ -1,13 +1,17 @@
 package com.example.fabianfleischer.thevocabmaster;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -15,6 +19,7 @@ import com.example.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * BlubberBlubber
@@ -27,8 +32,8 @@ public class ListeActivity extends ListActivity implements View.OnClickListener 
     Button addBtn;
     Button delBtn;
     ListView wordList;
-    ArrayList liste;
-
+    ArrayList liste = new ArrayList();;
+    Word choosenWord;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -37,11 +42,18 @@ public class ListeActivity extends ListActivity implements View.OnClickListener 
         dataSource= new DatabaseDataSource(this);
         dataSource.open();
         wordList= (ListView) findViewById(android.R.id.list);
-        List<Word> values=dataSource.getAllWords();
-        ArrayAdapter<Word> adapter= new ArrayAdapter<Word>(this,android.R.layout.simple_list_item_1,values);
+        List<Word> values= dataSource.getAllWords();
+        liste= (ArrayList) values;
+        ArrayAdapter<Word> adapter= new ArrayAdapter<Word>(this,android.R.layout.simple_list_item_1,liste);
         wordList.setAdapter(adapter);
-
-        liste = new ArrayList();
+        wordList.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                choosenWord = (Word) parent.getAdapter().getItem(position);
+                openDeleteWordAlert();
+            }
+        });
 
         deutsch = (EditText) findViewById(R.id.deutsch);
         englisch = (EditText) findViewById(R.id.englisch);
@@ -61,25 +73,52 @@ public class ListeActivity extends ListActivity implements View.OnClickListener 
             case R.id.addBtn:
                 String[] words = new String[]{deutsch.getText().toString(), englisch.getText().toString()};
                 word = dataSource.createWord(words[0],words[1]);
-                System.out.println("Das steht in word " + word);
-                String en = word.gerEnglisch();
-                String de = word.getGerman();
-                String ausgabe = de + " / "+ en;
-                liste.add(ausgabe);
-                adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,liste);;
+                liste.add(word);
+                adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,liste);
                 wordList.setAdapter(adapter);
-                Toast.makeText(this, "Wörter hinzugefügt", Toast.LENGTH_LONG).show();
+
+                Toast.makeText(this, "Woerter hinzugefuegt", Toast.LENGTH_LONG).show();
                 break;
             case R.id.delBtn:
-             /**   if (getListAdapter().getCount() > 0) {
-                    word = (Word) getListAdapter().getItem(0);
-                    dataSource.deleteWord(word);
-                    adapter.remove();
-                }**/
+               // if (getListAdapter().getCount() > 0) {
+                //    word = (Word) getListAdapter().getItem(0);
+               //     dataSource.deleteWord(word);
+              //      adapter.remove();
+              //  }
                 break;
         }
     }
 
+    public void openDeleteWordAlert(){
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(ListeActivity.this);
+        builder1.setMessage("Wollen Sie die Variable: " + choosenWord.toString() + " wirklich loeschen");
+        builder1.setCancelable(true);
+        builder1.setPositiveButton("Ja",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        dataSource.deleteWord(choosenWord);
+                        aktualisiereTabelle();
+                        dialog.cancel();
+                    }
+                });
+        builder1.setNegativeButton("Nein",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert = builder1.create();
+        alert.show();
+    }
+
+    private void aktualisiereTabelle() {
+        List<Word> values= dataSource.getAllWords();
+        liste= (ArrayList) values;
+        ArrayAdapter<Word> adapter= new ArrayAdapter<Word>(this,android.R.layout.simple_list_item_1,liste);
+        wordList.setAdapter(adapter);
+    }
 
     public void onBackPressed()
     {

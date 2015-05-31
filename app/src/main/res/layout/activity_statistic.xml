@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    android:weightSum="1">
+
+
+<TextView android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dip"
+        android:gravity="center"
+        android:padding="10dip"
+        android:textColor="#333333"
+        android:background="@drawable/backgroundueberschrift"
+        android:text="@string/Statistics"
+        android:id="@+id/textView19" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@android:id/list"
+        android:layout_centerHorizontal="true"/>
+</LinearLayout>
