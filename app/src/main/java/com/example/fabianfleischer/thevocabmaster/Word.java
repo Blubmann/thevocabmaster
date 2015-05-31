@@ -1,4 +1,4 @@
-package com.example.fabianfleischer.thevocabmaster.library;
+package com.example.fabianfleischer.thevocabmaster;
 
 /**
  * Created by fabian.fleischer on 14.05.2015.

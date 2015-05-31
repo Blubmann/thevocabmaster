@@ -1,4 +1,4 @@
-package com.example.fabianfleischer.thevocabmaster.library;
+package com.example.fabianfleischer.thevocabmaster;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

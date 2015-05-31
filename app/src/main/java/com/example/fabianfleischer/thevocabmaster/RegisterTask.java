@@ -10,8 +10,6 @@ import android.util.Log;
 import android.widget.EditText;
 
 import com.example.R;
-import com.example.fabianfleischer.thevocabmaster.library.DatabaseHandler;
-import com.example.fabianfleischer.thevocabmaster.library.UserFunctions;
 
 import org.json.JSONException;
 import org.json.JSONObject;

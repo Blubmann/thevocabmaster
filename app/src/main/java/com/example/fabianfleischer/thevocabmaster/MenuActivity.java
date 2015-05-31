@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.R;
-import com.example.fabianfleischer.thevocabmaster.library.UserFunctions;
 
 /**
  * Created by fabian.fleischer on 01.11.2014.

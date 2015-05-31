@@ -10,7 +10,6 @@ import android.os.AsyncTask;
 import android.widget.EditText;
 
 import com.example.R;
-import com.example.fabianfleischer.thevocabmaster.library.UserFunctions;
 
 import org.json.JSONException;
 import org.json.JSONObject;

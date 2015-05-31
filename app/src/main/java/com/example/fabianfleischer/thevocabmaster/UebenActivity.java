@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.R;
-import com.example.fabianfleischer.thevocabmaster.library.UserFunctions;
 
 public class UebenActivity extends Activity implements View.OnClickListener {
     UserFunctions userFunctions;

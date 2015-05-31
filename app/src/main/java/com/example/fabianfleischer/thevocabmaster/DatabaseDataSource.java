@@ -1,4 +1,4 @@
-package com.example.fabianfleischer.thevocabmaster.library;
+package com.example.fabianfleischer.thevocabmaster;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -39,8 +39,25 @@ public class DatabaseDataSource {
         cursor.moveToFirst();
         Word newWord = cursorToWord(cursor);
         cursor.close();
+        System.out.println("Das steht in newWord " + newWord);
         return newWord;
     }
+
+    public String[] getSingleWords(int id)
+    {
+        String[] words = new String[2];
+        Cursor cursor = database.rawQuery("SELECT * FROM words WHERE _id="+id+"", null);
+        if(cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            words[0] = cursor.getString(cursor.getColumnIndex(DatabaseOwnWords.COLUMN_DEUTSCH));
+            words[1] = cursor.getString(cursor.getColumnIndex(DatabaseOwnWords.COLUMN_ENGLISCH));
+            cursor.close();
+            System.out.println(words[0]);
+            System.out.println(words[1]);
+        }
+        return words;
+    }
+
 
     public void deleteWord(Word word){
         long id = word.getID();
