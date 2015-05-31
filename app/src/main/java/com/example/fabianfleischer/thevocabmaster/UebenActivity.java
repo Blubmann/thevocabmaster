@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.example.R;
 import com.example.fabianfleischer.thevocabmaster.library.UserFunctions;
 
-public class DashboardActivity extends Activity implements View.OnClickListener {
+public class UebenActivity extends Activity implements View.OnClickListener {
     UserFunctions userFunctions;
     Button btnLogout;
 
@@ -54,7 +54,7 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dashboard);
+        setContentView(R.layout.ueben);
         initiate();
     }
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -313,7 +313,7 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
     public void onBackPressed()
     {
         super.onBackPressed();
-        startActivity(new Intent(DashboardActivity.this, MenuActivity.class));
+        startActivity(new Intent(UebenActivity.this, MenuActivity.class));
         finish();
 
     }

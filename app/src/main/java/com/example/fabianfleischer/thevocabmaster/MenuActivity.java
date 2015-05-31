@@ -53,7 +53,7 @@ public class MenuActivity extends Activity implements View.OnClickListener {
             Intent login = new Intent(getApplicationContext(), LoginActivity.class);
             login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(login);
-// Closing dashboard screen
+// Closing ueben screen
             finish();
         }
     }
@@ -91,7 +91,7 @@ public class MenuActivity extends Activity implements View.OnClickListener {
 
     public void buttonUebenclicked(){
         Intent i = new Intent(getApplicationContext(),
-                DashboardActivity.class);
+                UebenActivity.class);
         startActivity(i);
         finish();
     }

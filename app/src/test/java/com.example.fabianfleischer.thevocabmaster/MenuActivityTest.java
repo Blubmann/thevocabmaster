@@ -1,6 +1,5 @@
 package com.example.fabianfleischer.thevocabmaster;
 
-import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertNotNull;
 
@@ -11,15 +10,9 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.Shadows;
 import org.robolectric.annotation.Config;
-import org.robolectric.shadows.ShadowActivity;
-import org.robolectric.shadows.ShadowHandler;
-import org.robolectric.shadows.ShadowToast;
 
 import android.content.Intent;
-import android.view.Menu;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.R;
 
@@ -49,7 +42,7 @@ public class MenuActivityTest{
         Button btnU = (Button) activity.findViewById(R.id.btnUeben);
         btnU.performClick();
         Intent intent = Shadows.shadowOf(activity).peekNextStartedActivity();
-        assertEquals(DashboardActivity.class.getCanonicalName(), intent.getComponent().getClassName());
+        assertEquals(UebenActivity.class.getCanonicalName(), intent.getComponent().getClassName());
     }
 
     @Test

@@ -36,7 +36,7 @@
             android:icon="@drawable/ic_launcher"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".fabianfleischer.thevocabmaster.DashboardActivity"
+            android:name=".fabianfleischer.thevocabmaster.UebenActivity"
             android:icon="@drawable/ic_launcher"
             android:windowSoftInputMode="stateHidden" />
         <activity
@@ -50,11 +50,11 @@
         <activity
             android:name=".fabianfleischer.thevocabmaster.HilfeActivity"
             android:icon="@drawable/ic_launcher"
-            android:parentActivityName=".fabianfleischer.thevocabmaster.DashboardActivity"
+            android:parentActivityName=".fabianfleischer.thevocabmaster.UebenActivity"
             android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.fabianfleischer.thevocabmaster.DashboardActivity" />
+                android:value=".fabianfleischer.thevocabmaster.UebenActivity" />
         </activity>
         <activity
             android:name=".fabianfleischer.thevocabmaster.HighscoreActivity"

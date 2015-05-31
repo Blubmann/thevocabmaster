@@ -84,7 +84,7 @@ public class RegisterActivity extends Activity {
             Toast toast = Toast.makeText(context, "Register Success", duration);
             toast.show();
             Intent i = new Intent(getApplicationContext(),
-                    DashboardActivity.class);
+                    UebenActivity.class);
             startActivity(i);
             finish();
         }
