@@ -76,13 +76,7 @@ public class ListeActivity extends ListActivity implements View.OnClickListener 
 
                 Toast.makeText(this, "Woerter hinzugefuegt", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.delBtn:
-               // if (getListAdapter().getCount() > 0) {
-                //    word = (Word) getListAdapter().getItem(0);
-               //     dataSource.deleteWord(word);
-              //      adapter.remove();
-              //  }
-                break;
+
         }
     }
 

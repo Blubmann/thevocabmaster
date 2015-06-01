@@ -4,6 +4,8 @@ package com.example.fabianfleischer.thevocabmaster;
  * Created by fabian.fleischer on 20.10.2014.
  */
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -16,9 +18,13 @@ import android.widget.TextView;
 
 import com.example.R;
 
+import java.util.List;
+
 public class UebenActivity extends Activity implements View.OnClickListener {
     UserFunctions userFunctions;
     Button btnLogout;
+
+    private DatabaseDataSource dataSource;
 
     //Schnittstellenbezogene Variablen.
     public Button buttonWeiter;
@@ -35,25 +41,17 @@ public class UebenActivity extends Activity implements View.OnClickListener {
     public boolean firstpress = false;  // Für Initialisierungs-Text
     public boolean lang = true;
 
-    public int vocnum;                  // Nummer der momentan gewählte Variable
-    public int anzahlVoc = 10;          // Anzahl der Vocabeln
-    public String[][] vocabs = new String[2][anzahlVoc];   // Alle Vocabeln
-    public String[] ausgewVoc = new String[2];      // Die momentan Gewählte Variable
+    private List<Word> allWords;
+    private Word choosenWord;
 
     // Überürpüfungsfelder
-    public int[] anzahlueberprueft = new int[anzahlVoc];
-    public int[] anzahlRichtig = new int[anzahlVoc];
-    public int[] anzahlFalsch = new int[anzahlVoc];
-
-    public int[] alt_anzahlueberprueft = new int[anzahlVoc];
-    public int[] alt_anzahlRichtig = new int[anzahlVoc];
-    public int[] alt_anzahlFalsch = new int[anzahlVoc];
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ueben);
+        dataSource= new DatabaseDataSource(this);
+        dataSource.open();
         initiate();
     }
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -77,34 +75,15 @@ public class UebenActivity extends Activity implements View.OnClickListener {
 
     //Alles was mit initialisierung zu tun hat
     public void initiate() {
-        initResetStatistikArrays();
         bindeOberflaecheEin();
-        createvocabs();
+        getAllVocabs();
         waehleNeueVariable();
         elementeAusblenden();
     }
-    public void createvocabs(){
-        vocabs[0][0] = "Hallo";
-        vocabs[1][0] = "hello";
-        vocabs[0][1] = "gehen";
-        vocabs[1][1] = "go";
-        vocabs[0][2] = "schlafen";
-        vocabs[1][2] = "sleep";
-        vocabs[0][3] = "Haus";
-        vocabs[1][3] = "house";
-        vocabs[0][4] = "essen";
-        vocabs[1][4] = "eat";
-        vocabs[0][5] = "rennen";
-        vocabs[1][5] = "run";
-        vocabs[0][6] = "trinken";
-        vocabs[1][6] = "drink";
-        vocabs[0][7] = "spielen";
-        vocabs[1][7] = "play";
-        vocabs[0][8] = "Tier";
-        vocabs[1][8] = "animal";
-        vocabs[0][9] = "Tür";
-        vocabs[1][9] = "door";
+    public void getAllVocabs(){
+        allWords= dataSource.getAllWords();
     }            // Hier wird das Array mit Daten gelanden
+
     public void bindeOberflaecheEin(){
 
         eingabe = (EditText) findViewById(R.id.eingabeKasten);
@@ -123,16 +102,6 @@ public class UebenActivity extends Activity implements View.OnClickListener {
         eingabe.setOnClickListener(this);
         buttonSprachwechsel.setOnClickListener(this);
     }      // Hier werden die Id's der XML-Element mit den Variablen des Java-Quelltextes verlinkt
-    public void initResetStatistikArrays(){
-        for (int i=0;i<anzahlVoc;i++){
-            anzahlueberprueft[i]= 0;
-            anzahlRichtig[i]= 0;
-            anzahlFalsch[i]= 0;
-            alt_anzahlFalsch[i]= 0;
-            alt_anzahlRichtig[i]= 0;
-            alt_anzahlueberprueft[i]= 0;
-        }
-    }// Reset aller Statistike
     public void elementeAusblenden(){
         buttonWeiter.setVisibility(View.INVISIBLE);
         buttonStatistik.setVisibility(View.INVISIBLE);
@@ -197,28 +166,28 @@ public class UebenActivity extends Activity implements View.OnClickListener {
         } else ;
     }     // Initialisierungstext im Eingabefeld (optional)
     public void buttonSprachwechselclicked(){
-        vertauscheVariablen();
-        switchStatistik();
+        //vertauscheVariablen();
+        //switchStatistik();
         reset();
     }
 
 
     //Alles was mit Variablen zu tun hat
     public void waehleNeueVariable() {
-        vocnum = randomfunktion();
-        ausgewVoc[0] = vocabs[0][vocnum];
-        ausgewVoc[1] = vocabs[1][vocnum];
-        gesucht.setText(vocabs[0][vocnum]);
+        choosenWord = allWords.get(randomfunktion());
+        //TODO: Wortumschaltung
+        gesucht.setText(choosenWord.getGerman());
     }         // Neue zufällige Variable wird in die aktuelle Eingespeichert
     public boolean checkVocab() {
         String eingegeben = (String) eingabe.getText().toString();
-
-        if (vocabs[1][vocnum].equals(eingegeben)) {
+        //TODO: Wortumschaltung beachten
+        if (choosenWord.gerEnglisch().equals(eingegeben)) {
             return true;
         } else {
             return false;
         }
     }              // Überprüfung der Richtigkeit der Eingabe
+    /**
     public void vertauscheVariablen(){
         String hilfsvar= "";
         for(int i=0; i<anzahlVoc;i++) {
@@ -226,30 +195,32 @@ public class UebenActivity extends Activity implements View.OnClickListener {
             vocabs[0][i] = vocabs[1][i];
             vocabs[1][i] = hilfsvar;
         }
-    }
+    }**/
     public void entferneRichtigeVariablen(boolean check){
         if (check== false){
             return;
         }
         else {
-            if(anzahlVoc >1) {
-                if (anzahlVoc - 1 == vocnum) {
-                    anzahlVoc--;
-                }
-                else{
-                    vocabs[1][vocnum] = vocabs[1][(anzahlVoc-1)];
-                    vocabs[0][vocnum] = vocabs[0][(anzahlVoc-1)];
-                    anzahlVoc--;
+            int i=0;
+            boolean richtigesgefunden=false;
+            while(richtigesgefunden == false){
+                i++;
+                Word equalWord = allWords.get(i);
+                if (equalWord.getID()== choosenWord.getID()) {
+                    allWords.remove(i);
+                    richtigesgefunden=true;
                 }
             }
-            else{
+            if(allWords.isEmpty()) {
                 ausgabe.setText("Das war die letzte Variable die noch nicht richtig beantwortet wurde !");
+
             }
 
         }
 
     }
     //Alles was mit Statistik zu tun hat
+    /**
     public void switchStatistik(){
         int hilfsvar= 0;
         for(int i =0; i < anzahlVoc; i++) {
@@ -265,23 +236,25 @@ public class UebenActivity extends Activity implements View.OnClickListener {
             alt_anzahlFalsch[i] = anzahlFalsch[i];
             anzahlFalsch[i] = hilfsvar;
         }
-    }
+    }**/
     public void aktualisiereStatistik(boolean check){
-        anzahlueberprueft[vocnum]++;
         if (check == false)
         {
-            anzahlFalsch[vocnum]++;
+            choosenWord.incFalsch();
         }
         else{
-            anzahlRichtig[vocnum]++;
+            choosenWord.incRichtig();
         }
+        dataSource.updateWord(choosenWord);
+
     }       // Auktualisiert die Statistic mit dem Eingegebenen Wert
 
 
     //Alle Ausgaben
     public void ausgabeErgebnis(boolean check){
         if (check == false) {
-            ausgabe.setText("Falsch! \n Die Richtige Antwort wäre: \"" + vocabs[1][vocnum] + "\" gewesen");
+            //TODO: Umschaltung auf Englisch beachten
+            ausgabe.setText("Falsch! \n Die Richtige Antwort wäre: \"" + choosenWord.gerEnglisch() + "\" gewesen");
             ausgabe.setTextColor(Color.parseColor("#FF0000"));
         } else {
             ausgabe.setText("Richtig");
@@ -289,17 +262,24 @@ public class UebenActivity extends Activity implements View.OnClickListener {
         }
     }// Ausgabe ob Richtig oder Falsch
     public void zeigeStatistic(){
-        ausgabeStatistik.setVisibility(View.VISIBLE);
-        ausgabeStatistik.setText("Ihre Statistik zur Vokabel " + vocabs[0][vocnum] + "/" + vocabs[1][vocnum]+ " sieht follgendermaßen aus: " +
-                "\n Anzahl der Überprüfungen: " + anzahlueberprueft[vocnum] +
-                "\n Anzahl richtiger Antworten: " + anzahlRichtig[vocnum] +
-                "\n Anzahl falscher Antworten: " + anzahlFalsch[vocnum]);
-    }              // Anzeigen von Statistic
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(UebenActivity.this);
+        String msg = "Deine Statistik fuer das Wort " + choosenWord.getGerman() + " / " + choosenWord.gerEnglisch() + " :" + "\n Anzahl korrekter Eingaben: " + choosenWord.getRichtig() + "\n Anzahl falscher Eingaben: " + choosenWord.getFalsch();
+        builder1.setMessage(msg);
+        builder1.setCancelable(true);
+        builder1.setNeutralButton("Okay",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder1.create();
+        alert.show();
+        }              // Anzeigen von Statistic
 
     //Andere Funktionen
     public int randomfunktion(){
         int zufallszahl;
-        zufallszahl = (int) (Math.random() * anzahlVoc);
+        zufallszahl = (int) (Math.random() * allWords.size());
         return zufallszahl;
     }
     public void ueberpruefungBeendet(boolean check){
