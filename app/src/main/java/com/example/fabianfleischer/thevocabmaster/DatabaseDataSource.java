@@ -45,6 +45,14 @@ public class DatabaseDataSource {
         return newWord;
     }
 
+    public void updateWord(Word word){
+        ContentValues values = new ContentValues();
+        values.put(DatabaseOwnWords.COLUMN_ANZ_RICHTIG, word.getRichtig());
+        values.put(DatabaseOwnWords.COLUMN_ANZ_FALSCH, word.getFalsch());
+        database.update(DatabaseOwnWords.TABLE_WORDS,values, DatabaseOwnWords.COLUMN_ID + " = ?",
+                new String[] { String.valueOf(word.getID())});
+    }
+
     public String[] getSingleWords(int id)
     {
         String[] words = new String[2];

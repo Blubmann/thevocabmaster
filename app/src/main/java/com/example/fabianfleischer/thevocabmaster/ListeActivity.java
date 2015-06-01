@@ -30,7 +30,6 @@ public class ListeActivity extends ListActivity implements View.OnClickListener 
     EditText deutsch;
     EditText englisch;
     Button addBtn;
-    Button delBtn;
     ListView wordList;
     ArrayList liste = new ArrayList();;
     Word choosenWord;
@@ -58,9 +57,7 @@ public class ListeActivity extends ListActivity implements View.OnClickListener 
         deutsch = (EditText) findViewById(R.id.deutsch);
         englisch = (EditText) findViewById(R.id.englisch);
         addBtn = (Button) findViewById(R.id.addBtn);
-        delBtn = (Button) findViewById(R.id.delBtn);
         addBtn.setOnClickListener(this);
-        delBtn.setOnClickListener(this);
 
     }
 
