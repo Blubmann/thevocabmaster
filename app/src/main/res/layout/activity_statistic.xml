@@ -17,8 +17,9 @@
         android:id="@+id/textView19" />
 
     <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="423dp"
         android:id="@android:id/list"
-        android:layout_centerHorizontal="true"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.21"/>
 </LinearLayout>
