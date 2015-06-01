@@ -13,13 +13,17 @@ public class DatabaseOwnWords extends SQLiteOpenHelper{
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_DEUTSCH = "deutsch";
     public static final String COLUMN_ENGLISCH = "englisch";
+    public static final String COLUMN_ANZ_RICHTIG = "richtig";
+    public static final String COLUMN_ANZ_FALSCH = "falsch";
     public static final String DATABASE_NAME = "words.db";
     public static final int DATABASE_VERSION = 1;
 
     private static final String DATABASE_CREATE = "create table " + TABLE_WORDS + "("
             + COLUMN_ID + " integer primary key autoincrement,"
             + COLUMN_DEUTSCH + " text not null,"
-            + COLUMN_ENGLISCH+ " text not null);";
+            + COLUMN_ENGLISCH + " text not null,"
+            + COLUMN_ANZ_RICHTIG + " integer,"
+            + COLUMN_ANZ_FALSCH + " integer);";
 
     public DatabaseOwnWords(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

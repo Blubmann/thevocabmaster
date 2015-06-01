@@ -5,6 +5,8 @@ package com.example.fabianfleischer.thevocabmaster;
  */
 public class Word {
     private long id;
+    private int richtig;
+    private int falsch;
     private String deutsch;
     private String englisch;
 
@@ -17,11 +19,11 @@ public class Word {
     }
 
     public String getGerman(){
-        return deutsch;
+        return this.deutsch;
     }
 
     public String gerEnglisch() {
-        return englisch;
+        return this.englisch;
     }
 
     public void setDeutsch(String deutsch){
@@ -31,6 +33,18 @@ public class Word {
     public void setEnglisch(String englisch){
         this.englisch=englisch;
     }
+
+    public int getRichtig() { return this.richtig;}
+
+    public int getFalsch() { return this.falsch;}
+
+    public void incRichtig() { this.richtig++;}
+
+    public void setRichitg(int val){this.richtig=val;}
+
+    public void incFalsch() { this.falsch++;}
+
+    public void setFalsch(int val){this.falsch=val;}
 
     public String toString() { return this.deutsch +  " / " + this.englisch; }
 }

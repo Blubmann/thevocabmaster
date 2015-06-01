@@ -15,7 +15,7 @@ import java.util.List;
 public class DatabaseDataSource {
     private SQLiteDatabase database;
     private DatabaseOwnWords dbHelper;
-    private String[] allColumns={DatabaseOwnWords.COLUMN_ID,DatabaseOwnWords.COLUMN_DEUTSCH,DatabaseOwnWords.COLUMN_ENGLISCH};
+    private String[] allColumns={DatabaseOwnWords.COLUMN_ID,DatabaseOwnWords.COLUMN_DEUTSCH,DatabaseOwnWords.COLUMN_ENGLISCH,DatabaseOwnWords.COLUMN_ANZ_RICHTIG,DatabaseOwnWords.COLUMN_ANZ_FALSCH};
 
     public DatabaseDataSource(Context context){
         dbHelper = new DatabaseOwnWords(context);
@@ -33,6 +33,8 @@ public class DatabaseDataSource {
         ContentValues values = new ContentValues();
         values.put(DatabaseOwnWords.COLUMN_DEUTSCH, deutsch);
         values.put(DatabaseOwnWords.COLUMN_ENGLISCH, englisch);
+        values.put(DatabaseOwnWords.COLUMN_ANZ_RICHTIG, 0);
+        values.put(DatabaseOwnWords.COLUMN_ANZ_FALSCH, 0);
         long insertID=database.insert(DatabaseOwnWords.TABLE_WORDS, null, values);
         System.out.println("Das steht in insertID "+values);
         Cursor cursor = database.query(DatabaseOwnWords.TABLE_WORDS,allColumns,DatabaseOwnWords.COLUMN_ID + "=" + insertID,null,null,null,null);
@@ -83,6 +85,8 @@ public class DatabaseDataSource {
         word.setID(cursor.getLong(0));
         word.setDeutsch(cursor.getString(1));
         word.setEnglisch(cursor.getString(2));
+        word.setRichitg(cursor.getInt(3));
+        word.setFalsch(cursor.getInt(4));
         return word;
     }
 }
