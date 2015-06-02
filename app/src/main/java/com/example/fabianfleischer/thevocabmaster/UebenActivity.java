@@ -65,7 +65,7 @@ public class UebenActivity extends Activity implements View.OnClickListener {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            Intent i= new Intent(this, HilfeActivity.class);
+            Intent i= new Intent(this, HilfeActivity.class); //Hier wird die Hilfe aufgerufen
             startActivity(i);
 
             return true;

@@ -24,8 +24,7 @@
     <string name="DeleteWord">Lösche letztes Wort</string>
     <string name="Deutsch">Deutsch</string>
     <string name="Englisch">Englisch</string>
-    <string name="HilfeText">Hilfe Text</string>
-    <string name="title_activity_hilfe">HilfeActivity</string>
+    <string name="HilfeText"><b>Nutzung der Applikation</b> \n \n Gehen Sie zum Erlernen von Vokabeln folgendermaßen vor:\nNach Betätigen der Schaltfläche <b>Wörter Üben</b> im Menü dieser Applikation finden Sie sich auf dem richtigen Screen.\n Geben Sie nun in das Eingabefeld die Übersetzung des darüber angezeigten Wortes ein. Sind Sie sich Ihrer Übersetzung sicher, drücken Sie die <b>Überprüfen</b> Schaltfläche.\n Nun wird Ihnen angezeigt, ob die Eingabe korrekt war. Anschließend fahren Sie mit weiteren Wörtern auf gleiche Weise fort.\n \n Möchten Sie keine weiteren Wörter üben, verlassen Sie den Screen über den <b>Zurück-Button</b> ihres Handys.\n \n Um Ihren Fortschritt zu überprüfen, können Sie im Menü den Punkt <b>Statistik</b> auswählen. Hier können Sie einsehen, wie viele der Eingaben korrekt oder inkorrekt ausgefallen sind. Indem Sie diese Ansicht periodisch überprüfen, können sie feststellen, ob Sie sich verbessert haben.\nUm die Hilfe zu verlassen und zum <b>Wörter Üben</b> zurückzukehren drücken Sie den <b>Zurück-Button</b>.</string>
     <string name="Statistics">Statistik</string>
     <string name="action_settings">Settings</string>
     <string name="Highscore">Highscore</string>
