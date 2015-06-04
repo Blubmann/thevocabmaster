@@ -163,7 +163,7 @@ public class UebenActivity extends Activity implements View.OnClickListener {
         if (firstpress == false) {
             eingabe.setText("");
             firstpress = true;
-        } else ;
+        }
     }     // Initialisierungstext im Eingabefeld (optional)
     public void buttonSprachwechselclicked(){
         //vertauscheVariablen();
@@ -181,11 +181,7 @@ public class UebenActivity extends Activity implements View.OnClickListener {
     public boolean checkVocab() {
         String eingegeben = (String) eingabe.getText().toString();
         //TODO: Wortumschaltung beachten
-        if (choosenWord.gerEnglisch().equals(eingegeben)) {
-            return true;
-        } else {
-            return false;
-        }
+        return (choosenWord.gerEnglisch().equals(eingegeben));
     }              // Überprüfung der Richtigkeit der Eingabe
     /**
     public void vertauscheVariablen(){

@@ -49,7 +49,7 @@ public class MenuActivityTest{
         Button btnU = (Button) activity.findViewById(R.id.btnUeben);
         btnU.performClick();
         Intent intent = Shadows.shadowOf(activity).peekNextStartedActivity();
-        assertEquals(DashboardActivity.class.getCanonicalName(), intent.getComponent().getClassName());
+        assertEquals(UebenActivity.class.getCanonicalName(), intent.getComponent().getClassName());
     }
 
     @Test

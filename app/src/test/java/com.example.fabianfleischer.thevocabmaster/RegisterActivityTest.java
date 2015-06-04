@@ -75,5 +75,5 @@ public class RegisterActivityTest {
         inputPassword.setText("Blubber");
         btnRegister.performClick();
         Intent intent = Shadows.shadowOf(activity).peekNextStartedActivity();
-        assertEquals(DashboardActivity.class.getCanonicalName(), intent.getComponent().getClassName());    }
+        assertEquals(UebenActivity.class.getCanonicalName(), intent.getComponent().getClassName());    }
 }
