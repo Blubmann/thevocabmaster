@@ -60,4 +60,13 @@ public class MenuActivityTest{
         Intent intent = Shadows.shadowOf(activity).peekNextStartedActivity();
         assertEquals(ListeActivity.class.getCanonicalName(), intent.getComponent().getClassName());
     }
+
+    @Test
+    public void clickingLogoutButton_shouldChangeActivityToLogin() throws Exception {
+
+        Button btnLogout = (Button) activity.findViewById(R.id.btnLogout);
+        btnLogout.performClick();
+        Intent intent = Shadows.shadowOf(activity).peekNextStartedActivity();
+        assertEquals(LoginActivity.class.getCanonicalName(), intent.getComponent().getClassName());
+    }
 }

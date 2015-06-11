@@ -12,7 +12,7 @@
         android:ems="8"
         android:id="@+id/deutsch"
         android:layout_alignParentLeft="true"
-        android:text="@string/Deutsch" />
+        android:hint="@string/Deutsch"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -21,7 +21,7 @@
         android:id="@+id/englisch"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:text="@string/Englisch" />
+        android:hint="@string/Englisch" />
     <Button
         android:id="@+id/addBtn"
         android:layout_width="wrap_content"
