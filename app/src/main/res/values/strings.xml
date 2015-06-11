@@ -31,5 +31,6 @@
     <string name="Beste">Das sind die besten Spieler:</string>
     <string name="title_activity_highscore">HighscoreActivity</string>
     <string name="title_activity_statistic">StatisticActivity</string>
+    <string name="NewWords">Neue Wörter definieren</string>
 
 </resources>

@@ -77,3 +77,4 @@ public class RegisterActivityTest {
         Intent intent = Shadows.shadowOf(activity).peekNextStartedActivity();
         assertEquals(UebenActivity.class.getCanonicalName(), intent.getComponent().getClassName());    }
 }
+snippsnipp
