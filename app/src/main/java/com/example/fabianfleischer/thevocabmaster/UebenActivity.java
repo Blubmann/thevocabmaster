@@ -40,6 +40,7 @@ public class UebenActivity extends Activity implements View.OnClickListener {
     public boolean next =false;         // Zur Änderung des Weiter-Buttons
     public boolean firstpress = false;  // Für Initialisierungs-Text
     public boolean lang = true;
+    public boolean sprache = true;      //True = GER, False = ENG
 
     private List<Word> allWords;
     private Word choosenWord;
@@ -173,8 +174,7 @@ public class UebenActivity extends Activity implements View.OnClickListener {
         }
     }     // Initialisierungstext im Eingabefeld (optional)
     public void buttonSprachwechselclicked(){
-        //vertauscheVariablen();
-        //switchStatistik();
+        sprache = !sprache;
         reset();
     }
 
@@ -184,12 +184,22 @@ public class UebenActivity extends Activity implements View.OnClickListener {
 
         choosenWord = allWords.get(randomfunktion());
         //TODO: Wortumschaltung
-        gesucht.setText(choosenWord.getGerman());
+        if (sprache == true) {
+            gesucht.setText(choosenWord.getGerman());
+        }
+        else{
+            gesucht.setText(choosenWord.gerEnglisch());
+        }
     }         // Neue zufällige Variable wird in die aktuelle Eingespeichert
     public boolean checkVocab() {
         String eingegeben = (String) eingabe.getText().toString();
         //TODO: Wortumschaltung beachten
-        return (choosenWord.gerEnglisch().equals(eingegeben));
+        if (sprache == true) {
+            return (choosenWord.gerEnglisch().equals(eingegeben));
+        }
+        else {
+            return (choosenWord.getGerman().equals(eingegeben));
+        }
     }              // Überprüfung der Richtigkeit der Eingabe
     /**
     public void vertauscheVariablen(){
@@ -241,8 +251,13 @@ public class UebenActivity extends Activity implements View.OnClickListener {
     public void ausgabeErgebnis(boolean check){
         if (check == false) {
             //TODO: Umschaltung auf Englisch beachten
-            ausgabe.setText("Falsch! \n Die Richtige Antwort wäre: \"" + choosenWord.gerEnglisch() + "\" gewesen");
-            ausgabe.setTextColor(Color.parseColor("#FF0000"));
+            if(sprache==true) {
+                ausgabe.setText("Falsch! \n Die Richtige Antwort wäre: \"" + choosenWord.gerEnglisch() + "\" gewesen");
+            }
+            else{
+                ausgabe.setText("Falsch! \n Die Richtige Antwort wäre: \"" + choosenWord.getGerman() + "\" gewesen");
+            }
+                ausgabe.setTextColor(Color.parseColor("#FF0000"));
         } else {
             ausgabe.setText("Richtig");
             ausgabe.setTextColor(Color.parseColor("#00FF00"));
