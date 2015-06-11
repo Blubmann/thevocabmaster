@@ -14,7 +14,7 @@
         android:padding="10dip"
         android:textColor="#333333"
         android:background="@drawable/backgroundueberschrift"
-        android:text="@string/NewWords" />
+        android:text="@string/NewWords"/>
 
     <EditText
         android:layout_width="wrap_content"
