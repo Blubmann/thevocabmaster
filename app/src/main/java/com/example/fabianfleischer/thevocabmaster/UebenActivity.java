@@ -174,6 +174,7 @@ public class UebenActivity extends Activity implements View.OnClickListener {
 
     //Alles was mit Variablen zu tun hat
     public void waehleNeueVariable() {
+
         choosenWord = allWords.get(randomfunktion());
         //TODO: Wortumschaltung
         gesucht.setText(choosenWord.getGerman());
@@ -208,31 +209,13 @@ public class UebenActivity extends Activity implements View.OnClickListener {
                 }
             }
             if(allWords.isEmpty()) {
-                ausgabe.setText("Das war die letzte Variable die noch nicht richtig beantwortet wurde !");
-
+              keineVokabelnZuÜberprüfen();
             }
 
         }
 
     }
     //Alles was mit Statistik zu tun hat
-    /**
-    public void switchStatistik(){
-        int hilfsvar= 0;
-        for(int i =0; i < anzahlVoc; i++) {
-            hilfsvar = alt_anzahlueberprueft[i];
-            alt_anzahlueberprueft[i] = anzahlueberprueft[i];
-            anzahlueberprueft[i] = hilfsvar;
-
-            hilfsvar = alt_anzahlRichtig[i];
-            alt_anzahlRichtig[i] = anzahlRichtig[i];
-            anzahlRichtig[i] = hilfsvar;
-
-            hilfsvar = alt_anzahlFalsch[i];
-            alt_anzahlFalsch[i] = anzahlFalsch[i];
-            anzahlFalsch[i] = hilfsvar;
-        }
-    }**/
     public void aktualisiereStatistik(boolean check){
         if (check == false)
         {
@@ -284,6 +267,33 @@ public class UebenActivity extends Activity implements View.OnClickListener {
         buttonWeiter.setVisibility(View.VISIBLE);
         buttonStatistik.setVisibility(View.VISIBLE);
     }       // Was wird nach der Beantwortung gemacht (WeiterButton/Statistic)
+
+    public void keineVokabelnZuÜberprüfen(){
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(UebenActivity.this);
+        String msg = "Es wurden alle Vokabeln aus der Wortliste richtig beantwortet möchten Sie die Wortliste erneut üben ?";
+        builder1.setMessage(msg);
+        builder1.setCancelable(true);
+
+        builder1.setNegativeButton("Nein",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                        onBackPressed();
+                    }
+                });
+
+        builder1.setPositiveButton("Ja",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                        initiate();
+                    }
+                });
+        AlertDialog alert = builder1.create();
+        alert.show();
+    }              // Anzeigen von Statistic
+
+
 
     public void onBackPressed()
     {
