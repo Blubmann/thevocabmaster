@@ -76,10 +76,16 @@ public class UebenActivity extends Activity implements View.OnClickListener {
     //Alles was mit initialisierung zu tun hat
     public void initiate() {
         bindeOberflaecheEin();
+        boolean wordexists = checkifVoclistempty();
+        if (wordexists== true){
+            getAllVocabs();
+            waehleNeueVariable();
+            elementeAusblenden();
+        }
+        else {
+            keineVokabelnInVokabelliste();
+        }
 
-        getAllVocabs();
-        waehleNeueVariable();
-        elementeAusblenden();
     }
     public void getAllVocabs(){
         allWords= dataSource.getAllWords();
@@ -294,9 +300,48 @@ public class UebenActivity extends Activity implements View.OnClickListener {
                 });
         AlertDialog alert = builder1.create();
         alert.show();
-    }              // Anzeigen von Statistic
+    }
+    public void keineVokabelnInVokabelliste(){
 
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(UebenActivity.this);
+        String msg = "Es sind keine Vokabeln in der Wortliste.";
+        builder1.setMessage(msg);
+        builder1.setCancelable(true);
 
+        builder1.setNegativeButton("Zurück",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                        onBackPressed();
+                    }
+                });
+
+        builder1.setPositiveButton("Füge neue Wörter hinzu",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                        Intent i = new Intent(getApplicationContext(),
+                                ListeActivity.class);
+                        startActivity(i);
+                        finish();
+                    }
+                });
+        AlertDialog alert = builder1.create();
+        alert.show();
+    }
+    // Anzeigen von Statistic
+
+    public boolean checkifVoclistempty(){
+        boolean varDrin;
+            List<Word> allWords = dataSource.getAllWords();
+            if(allWords.isEmpty()){
+                varDrin= false;
+            }
+            else {
+                varDrin= true;
+        }
+        return varDrin;
+    }
 
     public void onBackPressed()
     {
