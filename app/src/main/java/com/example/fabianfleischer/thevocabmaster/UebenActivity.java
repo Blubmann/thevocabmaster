@@ -76,6 +76,7 @@ public class UebenActivity extends Activity implements View.OnClickListener {
     //Alles was mit initialisierung zu tun hat
     public void initiate() {
         bindeOberflaecheEin();
+
         getAllVocabs();
         waehleNeueVariable();
         elementeAusblenden();
@@ -201,12 +202,13 @@ public class UebenActivity extends Activity implements View.OnClickListener {
             int i=0;
             boolean richtigesgefunden=false;
             while(richtigesgefunden == false){
-                i++;
+
                 Word equalWord = allWords.get(i);
                 if (equalWord.getID()== choosenWord.getID()) {
                     allWords.remove(i);
                     richtigesgefunden=true;
                 }
+                i++;
             }
             if(allWords.isEmpty()) {
               keineVokabelnZuÜberprüfen();
@@ -286,6 +288,7 @@ public class UebenActivity extends Activity implements View.OnClickListener {
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
+                        setContentView(R.layout.ueben);
                         initiate();
                     }
                 });
