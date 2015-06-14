@@ -62,6 +62,37 @@
         android:id="@+id/buttonWeiter"
         android:layout_marginBottom="-50dp" />
 
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="62dp"
+        android:orientation="horizontal"
+
+        android:layout_marginTop="50dp">
+
+        <ImageView
+            android:layout_width="46dp"
+            android:layout_height="30dp"
+
+            android:id="@+id/imageView"
+            android:layout_gravity="left"
+            android:src="@drawable/lautsprecher"
+            android:layout_marginTop="80dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SpracheÄndern"
+            android:id="@+id/buttonSprachWechsel"
+            android:singleLine="false"
+            android:longClickable="false"
+            android:layout_gravity="right"
+
+            android:layout_marginLeft="185dp" />
+
+    </LinearLayout>
+
     <TextView
         android:layout_width="132dp"
         android:layout_height="wrap_content"
@@ -69,24 +100,10 @@
         android:textColor="#ffff0000"
         android:textAlignment="center"
         android:textSize="20sp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="0dp"
         android:layout_marginBottom="20dp"
-        android:layout_marginLeft="140dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/SpracheÄndern"
-        android:id="@+id/buttonSprachWechsel"
-        android:singleLine="false"
-        android:layout_gravity="right" />
-
-    <ImageView
-        android:layout_width="46dp"
-        android:layout_height="30dp"
-        android:id="@+id/imageView"
-        android:layout_gravity="left"
-        android:src="@drawable/lautsprecher"/>
+        android:layout_marginLeft="0dp"
+        android:layout_gravity="center" />
 
     <TextView
         android:layout_width="match_parent"
